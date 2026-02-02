@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIONG CHEONG TRADING SDN.BHD - Home</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ------------------- Theme Variables ------------------- */
+        :root {
+            --bg-body: #0b1221;       /* Deep Navy Background */
+            --bg-card: #162030;       /* Lighter Navy for Cards */
+            --text-main: #ffffff;     /* White Text */
+            --text-sub: #94a3b8;      /* Slate Grey Text */
+            --accent: #29b6f6;        /* Bright Blue Accent */
+            --border-color: #1e293b;
+        }
+
+        /* ------------------- General Reset ------------------- */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            margin: 0;
+        }
+
+        /* Main Content Wrapper for Push Effect */
+        #main-content {
+            transition: margin-left 0.5s; /* Smooth push effect */
+            width: 100%;
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ------------------- Sidebar (Freezer Style) ------------------- */
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 2000;
+            top: 0;
+            left: 0;
+            background-color: #080d16;
+            overflow-x: hidden;
+            padding-top: 60px;
+            transition: 0.5s; /* Matches main-content transition */
+            box-shadow: 2px 0 10px rgba(0,0,0,0.5);
+            border-right: 1px solid var(--border-color);
+            white-space: nowrap;
+        }
+
+        .sidebar a, .sidebar .submenu-toggle {
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 1.1em;
+            color: var(--text-sub);
+            display: block;
+            transition: 0.3s;
+            border-bottom: 1px solid var(--border-color);
+            cursor: pointer;
+        }
+
+        .sidebar a:hover, .sidebar .submenu-toggle:hover {
+            color: var(--accent);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            line-height: 50px;
+            color: var(--text-sub);
+            cursor: pointer;
+        }
+
+        /* 给 Submenu 加了个 ID 方便 JS 操作 */
+        .submenu {
+            display: none;
+            background-color: #0b1221;
+            padding-left: 20px;
+        }
+
+        .overlay {
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1500;
+            display: none;
+        }
+
+        /* ------------------- Header (Matches Image) ------------------- */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            height: 120px; 
+            background-color: transparent;
+            position: relative;
+            z-index: 100; /* Ensure header is above hero images */
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .menu-icon {
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-main);
+        }
+
+        .brand-name {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 700;
+            font-size: 24px;
+            color: var(--text-main);
+            letter-spacing: 0.5px;
+        }
+
+        /* Center Navigation Links */
+        .nav-center {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-center a {
+            text-decoration: none;
+            color: var(--text-sub);
+            font-size: 16px;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-center a:hover {
+            color: var(--text-main);
+        }
+
+        /* [FIX] Improved Smart Link Styling for Alignment */
+        .smart-link {
+            color: var(--accent) !important;
+            font-weight: bold;
+            border: 1px solid var(--accent);
+            padding: 8px 18px;
+            border-radius: 50px; /* Pill shape looks cleaner */
+            display: inline-flex; /* Ensures content inside is centered */
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease !important;
+            line-height: 1; /* Prevents text from pushing height weirdly */
+        }
+        
+        .smart-link:hover {
+            background-color: var(--accent);
+            color: var(--bg-body) !important;
+            box-shadow: 0 0 15px rgba(41, 182, 246, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .header-right img {
+            height: auto;
+            width: 380px; 
+            max-width: 50vw; /* Responsive constraint */
+        }
+
+        /* ------------------- Hero Section with Rotating Images ------------------- */
+        .hero {
+            text-align: center;
+            padding: 100px 20px 80px;
+            position: relative; 
+            overflow: hidden; 
+            /* To allow 3D depth perception for children */
+            perspective: 1200px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--text-main);
+            margin-bottom: 15px;
+            font-weight: 700;
+            position: relative;
+            z-index: 20; /* High z-index to stay above floating images */
+            text-shadow: 0 4px 20px rgba(0,0,0,0.8); /* Stronger shadow for readability */
+        }
+
+        .hero p {
+            color: var(--accent);
+            font-size: 1.2rem;
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 20; /* High z-index */
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+        }
+
+        /* Container for the background floating images */
+        .floating-shapes {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 400px; /* Constrain height */
+            transform: translate(-50%, -50%);
+            z-index: 10; /* Behind text (20) */
+            pointer-events: none;
+            transform-style: preserve-3d;
+        }
+
+        .shape {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            /* [UPDATE] Larger Size for visibility */
+            width: 240px;
+            height: 240px;
+            margin-left: -120px; /* Center horizontally */
+            margin-top: -120px; /* Center vertically */
+            
+            border-radius: 24px; 
+            object-fit: cover;
+            
+            /* Visual Style */
+            background-color: var(--bg-card); /* Fallback */
+            border: 2px solid rgba(41, 182, 246, 0.3);
+            box-shadow: 0 0 30px rgba(0,0,0,0.5); 
+            
+            /* Animation Setting */
+            opacity: 0; /* Start hidden until animation kicks in */
+            animation: orbit-cycle 15s infinite linear;
+            will-change: transform, opacity;
+        }
+
+        /* Stagger the animation so they are evenly spaced */
+        .s1 {
+            animation-delay: 0s;
+        }
+        
+        .s2 {
+            animation-delay: -5s; /* 1/3 of 15s */
+        }
+        
+        .s3 {
+            animation-delay: -10s; /* 2/3 of 15s */
+        }
+
+        /* [NEW ANIMATION] Orbit Cycle with Dynamic Rotation
+           - Moves from Back (Small) to Front (Big)
+           - ROTATES to face direction (Left/Right)
+        */
+        @keyframes orbit-cycle {
+            0% {
+                /* Back Center: Faces Front (neutral) */
+                transform: translate3d(0, 0, -300px) rotateY(0deg) scale(0.6); 
+                opacity: 0.3;
+                z-index: 1;
+            }
+            25% {
+                /* Right Side: Faces Right (Outward) */
+                /* rotateY(-45deg) makes the left edge come forward, facing Right */
+                transform: translate3d(350px, 0, -150px) rotateY(-45deg) scale(0.8); 
+                opacity: 0.6;
+                z-index: 2;
+            }
+            50% {
+                /* Front Center: Faces Front */
+                transform: translate3d(0, 0, 0px) rotateY(0deg) scale(1.1); 
+                opacity: 1; 
+                z-index: 5;
+            }
+            75% {
+                /* Left Side: Faces Left (Outward) */
+                /* rotateY(45deg) makes the right edge come forward, facing Left */
+                transform: translate3d(-350px, 0, -150px) rotateY(45deg) scale(0.8); 
+                opacity: 0.6;
+                z-index: 2;
+            }
+            100% {
+                /* Back Center: Faces Front */
+                transform: translate3d(0, 0, -300px) rotateY(0deg) scale(0.6); 
+                opacity: 0.3;
+                z-index: 1;
+            }
+        }
+
+
+        /* ------------------- Section Titles ------------------- */
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--text-main);
+            margin-top: 40px;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent);
+            margin: 10px auto 0;
+        }
+
+        /* ------------------- Categories Grid ------------------- */
+        .categories-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 20px 60px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .category-card {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 320px;
+            cursor: pointer;
+            text-decoration: none;
+            border: 1px solid transparent;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border-color: var(--border-color);
+        }
+
+        .cat-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cat-desc {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .learn-more {
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 2;
+            display: inline-block;
+        }
+        
+        .learn-more i {
+            margin-left: 5px;
+            transition: margin-left 0.3s;
+        }
+        
+        .category-card:hover .learn-more i {
+            margin-left: 10px;
+        }
+
+        .bg-text {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.03);
+            white-space: nowrap;
+            z-index: 1;
+            pointer-events: none;
+            text-transform: uppercase;
+        }
+
+        .loading-card {
+            background-color: transparent;
+            border: 1px dashed var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-sub);
+            min-height: 320px;
+            border-radius: 12px;
+        }
+
+        /* ------------------- Footer ------------------- */
+        .footer {
+            margin-top: auto;
+            border-top: 1px solid var(--border-color);
+            padding: 20px;
+            text-align: center;
+            color: var(--text-sub);
+            font-size: 0.9em;
+        }
+
+        /* ------------------- Responsive Fix for Mobile Logo Overlap ------------------- */
+        @media (max-width: 992px) {
+            .nav-center { display: none; }
+        }
+        
+        @media (max-width: 768px) {
+            header { 
+                padding: 0 15px; 
+                height: 90px; /* Reduced header height for mobile */
+                justify-content: space-between;
+            }
+            
+            /* Adjust Left Side (Menu + Brand) to take available space */
+            .header-left {
+                gap: 10px;
+                flex: 1;
+                min-width: 0; /* Important for text overflow */
+            }
+
+            /* Adjust Brand Name to not crowd the logo */
+            .brand-name {
+                font-size: 16px; /* Smaller font on mobile */
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis; /* Add ... if text is too long */
+                max-width: 140px; /* Limit width */
+            }
+
+            /* Force Logo to be smaller on Mobile */
+            .header-right img {
+                width: 120px; /* Much smaller fixed width */
+                height: auto;
+                max-width: 40vw;
+            }
+
+            /* Adjust Hero Title */
+            .hero h1 { font-size: 2.5rem; }
+            .categories-container { grid-template-columns: 1fr; max-width: 400px; }
+            
+            /* Adjust floating images for mobile */
+            .shape { width: 150px; height: 150px; margin-left: -75px; margin-top: -75px; }
+            
+            /* Reduce orbit width and rotation on mobile */
+            @keyframes orbit-cycle {
+                0% { transform: translate3d(0, 0, -200px) rotateY(0deg) scale(0.6); opacity: 0.3; z-index: 1; }
+                25% { transform: translate3d(120px, 0, -100px) rotateY(-30deg) scale(0.8); opacity: 0.6; z-index: 2; }
+                50% { transform: translate3d(0, 0, 0px) rotateY(0deg) scale(1.1); opacity: 1; z-index: 5; }
+                75% { transform: translate3d(-120px, 0, -100px) rotateY(30deg) scale(0.8); opacity: 0.6; z-index: 2; }
+                100% { transform: translate3d(0, 0, -200px) rotateY(0deg) scale(0.6); opacity: 0.3; z-index: 1; }
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">&times;</a>
+        <a href="index.html" class="active" style="color:var(--accent)">Home</a>
+        <!-- NEW LINK IN SIDEBAR -->
+        <a href="gallery.html" style="color:var(--accent); font-weight:bold;">Our Gallery</a>
+        <a href="support.html" style="color:#29b6f6; font-weight:bold;"><i class="fas fa-robot"></i> Smart Assistant</a>
+        
+        <div class="submenu-toggle" onclick="toggleSubmenu(this)">Products</div>
+        <!-- 这里的 ID sidebar-submenu 很重要，用来动态插入新分类 -->
+        <div class="submenu" id="sidebar-submenu">
+            <a href="refrigerator.html">Refrigerator</a>
+            <a href="chiller.html">Chiller</a>
+            <a href="freezer.html">Freezer</a>
+            <a href="ac.html">Air Conditioner</a>
+            <a href="portable_ac.html">Portable Air Cond</a>
+            <a href="tv.html">TV</a>
+            <a href="washer.html">Washer</a>
+            <a href="dryer.html">Dryer</a>
+            <a href="hood.html">Hood</a>
+            <a href="gas.html">Gas</a>
+            <a href="oven.html">Oven</a>
+            <a href="microwave.html">Microwave</a>
+            <a href="air_fryer.html">Air Fryer</a>
+            <a href="shower.html">Shower</a>
+            <a href="air_purifier.html">Air Purifier</a>
+            <!-- 动态分类会自动插入到这里 -->
+        </div>
+        <a href="about.html">About Us</a>
+        <a href="location.html">Our Location</a>
+        <a href="contact.html">Contact Us</a>
+    </div>
+
+    <!-- Overlay -->
+    <div id="overlay" class="overlay" onclick="toggleNav()"></div>
+
+    <!-- Main Content Wrapper -->
+    <div id="main-content">
+        
+        <!-- Header -->
+        <header>
+            <div class="header-left">
+                <div class="menu-icon" onclick="toggleNav()">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="brand-name" style="margin-left: 15px;">SIONG CHEONG TRADING SDN.BHD</div>
+            </div>
+            
+            <div class="nav-center">
+                <a href="index.html" style="color: var(--text-main);">Home</a>
+                <a href="javascript:void(0)" onclick="toggleNav()">Products</a>
+                <a href="about.html">About Us</a>
+                <!-- NEW LINK IN HEADER -->
+                <a href="gallery.html" style="color: var(--text-sub);">Our Gallery</a>
+                <a href="support.html" class="smart-link"><i class="fas fa-robot"></i> Smart Assistant</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <div class="header-right">
+                <!-- Using a placeholder or text if image is missing -->
+                <img src="SCT_Logo.png" alt="SCT" onerror="this.style.display='none'; document.getElementById('text-logo-right').style.display='block';">
+                <span id="text-logo-right" style="display:none; font-weight:bold; color:var(--accent);">SCT</span>
+            </div>
+        </header>
+
+        <!-- Hero -->
+        <div class="hero">
+            <!-- Background Floating Images -->
+            <div class="floating-shapes">
+                <!-- 
+                   Using placeholder logic again for preview safety.
+                   Ensure sct1.jpg, sct2.jpg, sct3.jpg are in your folder.
+                -->
+                <img src="sct1.jpg" class="shape s1" alt="Decor 1">
+                <img src="sct2.jpg" class="shape s2" alt="Decor 2">
+                <img src="sct3.jpg" class="shape s3" alt="Decor 3">
+            </div>
+
+            <h1>SIONG CHEONG TRADING SDN.BHD</h1>
+            <p>Elevating life with premium quality appliances.</p>
+        </div>
+
+        <!-- Categories Section -->
+        <div class="section-title">Browse Categories</div>
+        
+        <!-- 这里包含了静态分类，新分类也会追加到这里 -->
+        <div class="categories-container" id="categories-container">
+            <!-- Static Categories will be injected here by JS -->
+        </div>
+
+        <div class="footer">
+            &copy; 2023 SIONG CHEONG TRADING SDN.BHD. All Rights Reserved.
+        </div>
+
+    </div>
+
+    <script>
+        // ------------------- 1. Sidebar Logic -------------------
+        function toggleNav() {
+            const sidebar = document.getElementById("mySidebar");
+            const overlay = document.getElementById("overlay");
+            const body = document.body;
+            const mainContent = document.getElementById("main-content");
+            const sidebarWidth = "250px";
+            const isOpened = sidebar.style.width === sidebarWidth;
+
+            if (isOpened) {
+                sidebar.style.width = "0";
+                mainContent.style.marginLeft = "0";
+                overlay.style.display = "none";
+                body.style.overflow = "auto";
+            } else {
+                sidebar.style.width = sidebarWidth;
+                mainContent.style.marginLeft = sidebarWidth;
+                overlay.style.display = "block";
+                body.style.overflow = "hidden";
+            }
+        }
+
+        function toggleSubmenu(element) {
+            const submenu = element.nextElementSibling;
+            if (submenu.style.display === "block") {
+                submenu.style.display = "none";
+            } else {
+                submenu.style.display = "block";
+            }
+        }
+        
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 992) {
+                // Optional logic for desktop resize
+            }
+        });
+
+        // ------------------- 2. Render Static Categories -------------------
+        const productCategories = [
+            { title: "Refrigerator", desc: "Inverter & No Frost technology.", link: "refrigerator.html", bgText: "Fridge" },
+            { title: "Chiller", desc: "High-efficiency display chillers.", link: "chiller.html", bgText: "Chiller" },
+            { title: "Freezer", desc: "Massive capacity with rapid freezing.", link: "freezer.html", bgText: "Freezer" },
+            { title: "Air Conditioner", desc: "Quiet comfort smart control.", link: "ac.html", bgText: "AC" },
+            { title: "Portable AC", desc: "Cool comfort wherever you need it.", link: "portable_ac.html", bgText: "Portable" },
+            { title: "Television", desc: "Smart 4K & UHD TVs.", link: "tv.html", bgText: "TV" },
+            { title: "Washer", desc: "Top load and front load washers.", link: "washer.html", bgText: "Washer" },
+            { title: "Dryer", desc: "Efficient clothes dryers.", link: "dryer.html", bgText: "Dryer" },
+            // ... truncated for brevity ...
+        ];
+
+        const categoriesContainer = document.getElementById('categories-container');
+
+        productCategories.forEach(cat => {
+            const card = document.createElement('a');
+            card.href = cat.link;
+            card.className = 'category-card';
+            card.innerHTML = `
+                <div>
+                    <div class="cat-title">${cat.title}</div>
+                    <div class="cat-desc">${cat.desc}</div>
+                    <div class="learn-more">Learn more <i class="fas fa-chevron-right"></i></div>
+                </div>
+                <div class="bg-text">${cat.bgText}</div>
+            `;
+            categoriesContainer.appendChild(card);
+        });
+
+        // ------------------- 3. GOOGLE SHEETS API LOGIC (Merged) -------------------
+        const API_URL = "https://sheetdb.io/api/v1/hsr2y6r8elmum"; 
+
+        async function loadDynamicCategories() {
+            // 我们直接使用同一个容器，这样新内容就会排在后面
+            const container = document.getElementById('categories-container');
+            // 获取侧边栏的容器
+            const sidebarContainer = document.getElementById('sidebar-submenu');
+            
+            // 添加一个临时的加载提示卡片
+            const loadingCard = document.createElement('div');
+            loadingCard.className = 'loading-card';
+            loadingCard.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading more...';
+            container.appendChild(loadingCard);
+            
+            try {
+                // 1. 获取数据 (no-store 防止缓存)
+                console.log("正在请求 API:", API_URL);
+                const response = await fetch(API_URL, { cache: 'no-store' });
+                const data = await response.json();
+                
+                // 移除加载提示
+                if(container.contains(loadingCard)) {
+                    container.removeChild(loadingCard);
+                }
+
+                if (data.length === 0) {
+                    console.log("API 返回空数据");
+                    return;
+                }
+
+                // 2. 生成 HTML 并追加
+                data.forEach(item => {
+                    const title = item['Category name'] || 'Untitled';
+                    const desc = item['description'] || '';
+                    const link = item['html link'] || '#';
+                    const bgText = title; 
+
+                    // --- A. 添加到主页分类列表 ---
+                    const card = document.createElement('a');
+                    card.href = link;
+                    card.className = 'category-card'; // 样式与旧分类完全一致
+                    card.innerHTML = `
+                        <div>
+                            <div class="cat-title">${title}</div>
+                            <div class="cat-desc">${desc}</div>
+                            <div class="learn-more">Learn more <i class="fas fa-chevron-right"></i></div>
+                        </div>
+                        <div class="bg-text">${bgText}</div>
+                    `;
+                    container.appendChild(card);
+
+                    // --- B. 添加到侧边栏菜单 ---
+                    // 修正：主要检查标题是否重复，因为链接可能是暂时为空的 #
+                    // 如果标题已经存在于侧边栏中，就不添加了
+                    const existingLinks = sidebarContainer.querySelectorAll('a');
+                    let exists = false;
+                    existingLinks.forEach(l => {
+                        // 清除空格并转小写进行比较，增加容错率
+                        if(l.textContent.trim().toLowerCase() === title.trim().toLowerCase()) {
+                            exists = true;
+                        }
+                        // 或者如果链接完全一样（且不是 #），也算重复
+                        if(link !== '#' && l.getAttribute('href') === link) {
+                            exists = true;
+                        }
+                    });
+
+                    if (!exists) {
+                        const sidebarLink = document.createElement('a');
+                        sidebarLink.href = link;
+                        sidebarLink.textContent = title; // 侧边栏只显示标题
+                        sidebarContainer.appendChild(sidebarLink);
+                    }
+                });
+
+            } catch (error) {
+                console.error("加载失败:", error);
+                if(container.contains(loadingCard)) {
+                    loadingCard.innerHTML = "Failed to load extra categories.";
+                }
+            }
+        }
+
+        // 页面加载完立即执行
+        loadDynamicCategories();
+
+    </script>
+</body>
+</html>
+
+
+

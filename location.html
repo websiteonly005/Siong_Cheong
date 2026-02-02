@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Location | Siong Cheong Trading</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Playfair Display & Lato -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ------------------- Theme Variables (Unified Style) ------------------- */
+        :root {
+            --bg-body: #0b1221;       /* Deep Navy Background */
+            --bg-card: #162030;       /* Card Background */
+            --text-main: #ffffff;     /* White Text */
+            --text-sub: #94a3b8;      /* Slate Grey Text */
+            --accent: #29b6f6;        /* Bright Blue Accent */
+            --btn-bg: #0ea5e9;        /* Button Background */
+            --btn-hover: #0284c7;     /* Button Hover */
+            --border-color: #1e293b;
+        }
+
+        /* ------------------- Reset & Base ------------------- */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            margin: 0;
+            font-family: 'Lato', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; padding: 0; margin: 0; }
+
+        /* ------------------- Layout Wrapper for Push Effect ------------------- */
+        #main-content {
+            width: 100%;
+            max-width: 100vw;
+            transition: margin-left 0.5s;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            position: relative;
+            background-color: var(--bg-body);
+        }
+
+        /* ------------------- Sidebar (Freezer Style) ------------------- */
+        .menu-icon {
+            position: fixed;
+            top: 35px; /* Adjusted for larger header */
+            left: 25px;
+            z-index: 10000;
+            cursor: pointer;
+            padding: 10px;
+            background-color: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            width: 45px;
+            height: 45px;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-icon:hover {
+            border-color: var(--accent);
+            background-color: rgba(15, 23, 42, 1);
+        }
+
+        .bar {
+            width: 20px;
+            height: 2px;
+            background-color: var(--text-main);
+            transition: 0.4s;
+        }
+        
+        .menu-icon:hover .bar { background-color: var(--accent); }
+
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 10001;
+            top: 0;
+            left: 0;
+            background-color: #020617; /* Darkest Navy */
+            overflow-x: hidden;
+            padding-top: 80px;
+            transition: 0.5s;
+            box-shadow: 5px 0 15px rgba(0,0,0,0.5);
+            border-right: 1px solid rgba(255,255,255,0.05);
+            white-space: nowrap;
+        }
+
+        .sidebar a, .sidebar .submenu-toggle {
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 1.1em;
+            color: var(--text-sub);
+            display: block;
+            transition: 0.3s;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            cursor: pointer;
+            font-family: var(--font-serif);
+            letter-spacing: 0.5px;
+        }
+
+        .sidebar a:hover, .sidebar .submenu-toggle:hover {
+            color: var(--accent);
+            background: rgba(56, 189, 248, 0.05);
+            padding-left: 35px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .closebtn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 30px;
+            color: var(--text-sub);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .closebtn:hover { color: var(--accent); transform: rotate(90deg); }
+
+        .submenu {
+            display: none;
+            background-color: #0f172a;
+            padding-left: 0;
+        }
+        
+        .submenu a {
+            padding-left: 45px;
+            font-size: 0.95em;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            border-left: none;
+        }
+        
+        .submenu a:hover {
+            border-left: 3px solid var(--accent);
+            padding-left: 50px;
+        }
+
+        .overlay {
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 9999;
+            display: none;
+            backdrop-filter: blur(4px);
+        }
+
+        /* ------------------- Header ------------------- */
+        header {
+            background: rgba(15, 23, 42, 0.90);
+            padding: 0 40px; /* Consistent padding */
+            color: white;
+            display: flex; /* Flex layout to align items */
+            align-items: center;
+            justify-content: center; /* Center content */
+            height: 120px; /* Increased height */
+            position: relative;
+            box-sizing: border-box; 
+            font-family: 'Playfair Display', serif;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .header-title {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .header-logo-right {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 380px; /* Increased Size */
+            height: auto;
+            object-fit: contain;
+        }
+
+        /* ------------------- Hero Section ------------------- */
+        .hero-section {
+            padding-top: 60px; 
+            padding-bottom: 40px;
+            text-align: center;
+            background: radial-gradient(circle at center top, #1e293b 0%, #0f172a 70%);
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem; 
+            font-weight: 700;
+            color: var(--text-main);
+            margin: 0 0 16px 0;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--accent); 
+            font-weight: 400;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            letter-spacing: 0.5px;
+        }
+
+        /* ------------------- Location Container (Enhanced) ------------------- */
+        .container {
+            max-width: 1400px; /* Increased max-width */
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* ------------------- Map Section (Side-by-Side) ------------------- */
+        .location-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px; /* Larger radius */
+            width: 100%;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            margin-bottom: 60px;
+            display: flex;
+            flex-direction: column; /* Mobile first: Stacked */
+            overflow: hidden;
+        }
+
+        .location-info {
+            padding: 40px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--bg-card) 0%, rgba(15, 23, 42, 0.8) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .location-info h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem; /* Adjusted Title Size */
+            color: var(--text-main);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .location-info p {
+            font-size: 1.2rem; /* Adjusted Text Size */
+            color: var(--text-sub);
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        .btn-map {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, var(--accent) 0%, #0284c7 100%);
+            color: white;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+            font-size: 1.1rem;
+        }
+
+        .btn-map:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(56, 189, 248, 0.5);
+            filter: brightness(1.1);
+        }
+
+        .btn-map i {
+            margin-right: 12px;
+            font-size: 1.2em;
+        }
+
+        /* Map Container */
+        .map-container {
+            width: 100%;
+            height: 400px; /* Default height for mobile */
+            position: relative;
+            background-color: #1e293b; /* Placeholder color */
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            filter: grayscale(20%) contrast(1.1); /* Stylized map */
+        }
+
+        /* Desktop Layout (Side-by-Side) */
+        @media (min-width: 992px) {
+            .location-card {
+                flex-direction: row; /* Switch to row */
+                align-items: stretch;
+                text-align: left;
+            }
+            
+            .location-info {
+                flex: 1; /* Take up 40-50% space */
+                text-align: left;
+                align-items: flex-start;
+                padding: 60px;
+                border-right: 1px solid rgba(255,255,255,0.05);
+            }
+
+            .map-container {
+                flex: 1.5; /* Map takes more space */
+                height: auto; /* Stretch to fill height */
+                min-height: 500px; /* Ensure it's tall/big */
+            }
+        }
+
+        /* ------------------- Footer ------------------- */
+        .page-footer {
+            background-color: #020617; 
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #64748b; 
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: auto;
+            width: 100%;
+        }
+
+        .back-to-home {
+            background-color: #2ecc71; 
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.2s;
+            display: inline-block;
+        }
+
+        .back-to-home:hover {
+            background-color: #27ae60;
+        }
+
+        /* Responsive Text */
+        @media (max-width: 900px) {
+            header { height: 100px; padding: 0 20px; }
+            .header-logo-right { width: 150px; } /* Mobile size */
+            .hero-title { font-size: 2.5rem; }
+            .location-info h2 { font-size: 1.8rem; }
+            .location-info p { font-size: 1rem; }
+            .map-container { height: 350px; }
+            .menu-icon { top: 25px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Menu Button -->
+    <div class="menu-icon" onclick="toggleNav()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">&times;</a>
+        <a href="index.html">Home</a>
+        <a href="support.html" style="color:var(--accent); font-weight:bold;"><i class="fas fa-robot"></i> Smart Assistant</a>
+        
+        <div class="submenu-toggle" onclick="toggleSubmenu(this)">Products</div>
+        <div class="submenu" style="display: block;">
+            <a href="refrigerator.html">Refrigerator</a>
+            <a href="chiller.html">Chiller</a>
+            <a href="freezer.html">Freezer</a>
+            <a href="ac.html">Air Conditioner</a>
+            <a href="portable_ac.html">Portable Air Cond</a>
+            <a href="tv.html">TV</a>
+            <a href="washer.html">Washer</a>
+            <a href="dryer.html">Dryer</a>
+            <a href="kitchen.html">Kitchen Appliances</a>
+            <a href="hood.html">Hood</a>
+            <a href="gas.html">Gas</a>
+            <a href="oven.html">Oven</a>
+            <a href="microwave.html">Microwave</a>
+            <a href="air_fryer.html">Air Fryer</a>
+            <a href="shower.html">Shower</a>
+            <a href="air_purifier.html">Air Purifier</a>
+            <a href="speaker.html">Speaker</a>
+            <a href="small.html">Small Appliances</a>
+        </div>
+        <a href="about.html">About Us</a>
+        <a href="location.html" class="active" style="color:var(--accent)">Our Location</a>
+        <a href="contact.html">Contact Us</a>
+    </div>
+
+    <!-- Overlay -->
+    <div id="overlay" class="overlay" onclick="toggleNav()"></div>
+
+    <!-- Main Content Wrapper -->
+    <div id="main-content">
+        
+        <header>
+            <div class="header-title">Our Locations</div>
+            <img src="SCT_Logo.png" alt="SCT Logo" class="header-logo-right" onerror="this.style.display='none'">
+        </header>
+
+        <div class="hero-section">
+            <h1 class="hero-title">Visit Us</h1>
+            <p class="hero-subtitle">Find our showrooms and service centers easily.</p>
+        </div>
+
+        <div class="container">
+            
+            <!-- Location 1: Kota Sentosa -->
+            <div class="location-card">
+                <div class="location-info">
+                    <h2>SIONG CHEONG TRADING (HQ)</h2>
+                    <p>
+                        No. 13, Lot 3184, Sentosa Central,<br>
+                        Jalan Penrissen, Kota Sentosa,<br>
+                        93250 Kuching, Sarawak
+                    </p>
+                    
+                    <a href="https://maps.app.goo.gl/QwziW8derXDtCiGr8" target="_blank" class="btn-map">
+                        <i class="fas fa-location-arrow"></i> Navigate Now
+                    </a>
+                </div>
+
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.455243886477!2d110.3298!3d1.4984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31fba0b000000001%3A0x1234567890abcdef!2sSiong%20Cheong%20Trading!5e0!3m2!1sen!2smy!4v1700000000000!5m2!1sen!2smy" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Siong Cheong Sentosa Map">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- Location 2: Aeroville Mall -->
+            <div class="location-card">
+                <div class="location-info">
+                    <h2>SIONG CHEONG TRADING (Aeroville)</h2>
+                    <p>
+                        Aeroville Mall,<br>
+                        Jalan Stutong Baru,<br>
+                        93350 Kuching, Sarawak
+                    </p>
+                    
+                    <a href="https://www.google.com/maps/search/Siong+Cheong+Trading+Aeroville+Mall" target="_blank" class="btn-map">
+                        <i class="fas fa-location-arrow"></i> Navigate Now
+                    </a>
+                </div>
+
+                <div class="map-container">
+                    <!-- Using a general embedded map for Aeroville Mall area since exact CID isn't provided -->
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.385759714856!2d110.3758!3d1.5305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31fba761a660c41f%3A0x9597255755500000!2sAeroville%20Mall!5e0!3m2!1sen!2smy!4v1700000000001!5m2!1sen!2smy" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Siong Cheong Aeroville Map">
+                    </iframe>
+                </div>
+            </div>
+
+        </div>
+
+        <footer class="page-footer">
+            <a href="index.html" class="back-to-home">Back to Home</a>
+            <p style="margin-top: 20px; font-size: 0.8em; opacity: 0.7;">Copyright © 2025 Siong Cheong Trading. All rights reserved.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        // ------------------- Navigation Logic (Push Effect) -------------------
+        window.toggleNav = function() {
+            const sidebar = document.getElementById("mySidebar");
+            const overlay = document.getElementById("overlay");
+            const body = document.body;
+            const mainContent = document.getElementById("main-content");
+            
+            const isOpen = sidebar.style.width === "250px";
+
+            if (isOpen) {
+                sidebar.style.width = "0";
+                overlay.style.display = "none";
+                body.style.overflow = "auto";
+                mainContent.style.marginLeft = "0";
+            } else {
+                sidebar.style.width = "250px";
+                overlay.style.display = "block";
+                body.style.overflow = "hidden";
+                mainContent.style.marginLeft = "250px";
+            }
+        }
+
+        window.toggleSubmenu = function(element) {
+            const submenu = element.nextElementSibling;
+            const isShown = submenu.style.display === "block";
+            document.querySelectorAll(".submenu").forEach(s => (s.style.display = "none"));
+            submenu.style.display = isShown ? "none" : "block";
+        }
+    </script>
+</body>
+</html>
