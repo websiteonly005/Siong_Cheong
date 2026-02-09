@@ -1,8 +1,51 @@
-// Smart Assistant Database (Multi-Language)
+// Smart Assistant Database (Multi-Language) - Updated for Siong Cheong Trading
 // 智能助手数据库（多语言版）
 // Structure: { keywords: [...], answers: { en: "...", zh: "...", ms: "..." } }
 
 const knowledgeBase = [
+    // ---------------------------------------------------------
+    // 1. SPECIFIC BUSINESS INFO (Based on your input)
+    // ---------------------------------------------------------
+    {
+        // Location / Address
+        keywords: ["location", "address", "where", "shop", "branch", "map", "地址", "地点", "哪里", "分行", "地图", "lokasi", "kedai", "mana", "cawangan", "peta"],
+        answers: {
+            en: "We have two branches in Kuching:<br>1. **Kota Sentosa (Batu 7)**: <a href='https://maps.app.goo.gl/QwziW8derXDtCiGr8' target='_blank'>View Map</a><br>2. **Aeroville Mall (1st Floor)**: <a href='https://maps.app.goo.gl/Mn9QCJ5xtkUbE29z8' target='_blank'>View Map</a>",
+            zh: "我们在古晋有两家分行：<br>1. **Kota Sentosa (七哩)**: <a href='https://maps.app.goo.gl/QwziW8derXDtCiGr8' target='_blank'>查看地图</a><br>2. **Aeroville Mall (一楼)**: <a href='https://maps.app.goo.gl/Mn9QCJ5xtkUbE29z8' target='_blank'>查看地图</a>",
+            ms: "Kami ada dua cawangan di Kuching:<br>1. **Kota Sentosa (Batu 7)**: <a href='https://maps.app.goo.gl/QwziW8derXDtCiGr8' target='_blank'>Lihat Peta</a><br>2. **Aeroville Mall (Tingkat 2)**: <a href='https://maps.app.goo.gl/Mn9QCJ5xtkUbE29z8' target='_blank'>Lihat Peta</a>"
+        }
+    },
+    {
+        // Operating Hours
+        keywords: ["hours", "open", "close", "time", "when", "营业时间", "几点", "开门", "关门", "休息", "masa", "buka", "tutup", "jam"],
+        answers: {
+            en: "Our business hours are:<br>📅 **Mon - Sat**: 9am - 6pm<br>📅 **Sun & Public Holidays**: 9am - 3pm",
+            zh: "我们的营业时间：<br>📅 **周一至周六**: 9am - 6pm<br>📅 **周日及公共假期**: 9am - 3pm",
+            ms: "Waktu operasi kami:<br>📅 **Isnin - Sabtu**: 9am - 6pm<br>📅 **Ahad & Cuti Umum**: 9am - 3pm"
+        }
+    },
+    {
+        // Contact / WhatsApp / Photos (Combined for better user experience)
+        keywords: ["contact", "whatsapp", "phone", "call", "photo", "picture", "more info", "image", "电话", "联系", "照片", "图片", "更多", "hubungi", "telefon", "gambar", "foto"],
+        answers: {
+            en: "For inquiries or to see **more product photos**, please WhatsApp **Jordan Yap** at **014-8818581**.<br><a href='https://wa.link/vvfign' target='_blank' style='color:#29b6f6; font-weight:bold;'>Click here to WhatsApp</a>",
+            zh: "欲咨询或查看**更多产品图片**，请 WhatsApp 联系 **Jordan Yap (014-8818581)**。<br><a href='https://wa.link/vvfign' target='_blank' style='color:#29b6f6; font-weight:bold;'>点击这里 WhatsApp</a>",
+            ms: "Untuk pertanyaan atau lihat **lebih banyak gambar**, sila WhatsApp **Jordan Yap** di **014-8818581**.<br><a href='https://wa.link/vvfign' target='_blank' style='color:#29b6f6; font-weight:bold;'>Klik sini untuk WhatsApp</a>"
+        }
+    },
+    {
+        // Facebook / Social Media
+        keywords: ["facebook", "fb", "page", "social", "media", "脸书", "面子书", "专页", "facebook page", "laman fb"],
+        answers: {
+            en: "Follow our Facebook page for the latest updates: <a href='https://www.facebook.com/siongcheongtrading' target='_blank'>Siong Cheong Trading FB</a>",
+            zh: "关注我们的 Facebook 专页以获取最新消息：<a href='https://www.facebook.com/siongcheongtrading' target='_blank'>Siong Cheong Trading FB</a>",
+            ms: "Ikuti laman Facebook kami untuk kemas kini terbaru: <a href='https://www.facebook.com/siongcheongtrading' target='_blank'>Siong Cheong Trading FB</a>"
+        }
+    },
+
+    // ---------------------------------------------------------
+    // 2. GENERAL PRODUCT INFO (Retained from previous version)
+    // ---------------------------------------------------------
     {
         // Fridge
         keywords: ["fridge", "refrigerator", "cold", "food", "inverter", "冰箱", "雪柜", "冷藏", "peti sejuk", "ais", "sejuk"],
@@ -73,15 +116,6 @@ const knowledgeBase = [
             en: "Appliances come with **1-Year General Warranty**. Motors/Compressors often have **5-10 Years**. Keep your receipt!",
             zh: "所有电器均享有至少 **1 年的一般保修**。电机/压缩机通常享有 **5-10 年保修**。请保留您的收据！",
             ms: "Peralatan disertakan dengan **Jaminan Umum 1 Tahun**. Motor/Kompet pemampat selalunya ada **5-10 Tahun**. Simpan resit anda!"
-        }
-    },
-    {
-        // Contact
-        keywords: ["contact", "phone", "email", "address", "location", "联系", "电话", "地址", "hubungi", "telefon", "alamat", "lokasi"],
-        answers: {
-            en: "Call us at +60-12-345-6789 or visit our showroom. Check the 'Contact' page for the map.",
-            zh: "请致电 +60-12-345-6789 或光临我们的陈列室。查看“联系我们”页面获取地图位置。",
-            ms: "Hubungi kami di +60-12-345-6789 atau lawati bilik pameran kami. Semak halaman 'Contact' untuk peta."
         }
     }
 ];
