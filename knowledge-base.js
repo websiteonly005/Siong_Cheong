@@ -3,10 +3,9 @@
 
 const knowledgeBase = [
     // ---------------------------------------------------------
-    // 1. SPECIFIC BUSINESS INFO
+    // 1. BUSINESS INFO (Location, Hours, Contact)
     // ---------------------------------------------------------
     {
-        // Location / Address
         keywords: ["location", "address", "where", "shop", "branch", "map", "place", "地址", "地点", "哪里", "分行", "地图", "位置", "lokasi", "kedai", "mana", "cawangan", "peta", "tempat"],
         answers: {
             en: "We have two branches in Kuching:<br>1. **Kota Sentosa (Batu 7)**: <a href='https://maps.app.goo.gl/QwziW8derXDtCiGr8' target='_blank'>View Map</a><br>2. **Aeroville Mall (1st Floor)**: <a href='https://maps.app.goo.gl/Mn9QCJ5xtkUbE29z8' target='_blank'>View Map</a>",
@@ -15,106 +14,115 @@ const knowledgeBase = [
         }
     },
     {
-        // Operating Hours
-        keywords: ["hours", "open", "close", "time", "when", "business hour", "营业时间", "几点", "开门", "关门", "休息", "时间", "masa", "buka", "tutup", "jam", "waktu"],
+        keywords: ["hours", "open", "time", "营业时间", "几点", "masa", "buka"],
         answers: {
-            en: "Our business hours are:<br>📅 **Mon - Sat**: 9am - 6pm<br>📅 **Sun & Public Holidays**: 9am - 3pm",
-            zh: "我们的营业时间：<br>📅 **周一至周六**: 9am - 6pm<br>📅 **周日及公共假期**: 9am - 3pm",
-            ms: "Waktu operasi kami:<br>📅 **Isnin - Sabtu**: 9am - 6pm<br>📅 **Ahad & Cuti Umum**: 9am - 3pm"
-        }
-    },
-    {
-        // Contact / WhatsApp / Photos (Updated with WhatsApp Links for ALL)
-        keywords: ["contact", "whatsapp", "whats app", "watsapp", "ws", "phone", "hp", "call", "photo", "picture", "image", "电话", "联系", "号码", "照片", "图片", "联络", "hubungi", "telefon", "nombor", "gambar", "foto", "wasap"],
-        answers: {
-            en: "For inquiries, please contact us:<br>📞 **Jordan Yap**: 014-8818581 (<a href='https://wa.link/vvfign' target='_blank'>WhatsApp</a>)<br>📞 **Miss Law**: 010-9613839 (<a href='https://wa.me/60109613839' target='_blank'>WhatsApp</a>)<br>📞 **SCT Office**: 010-2556806 (<a href='https://wa.me/60102556806' target='_blank'>WhatsApp</a>)",
-            zh: "欲咨询请联系我们：<br>📞 **Jordan Yap**: 014-8818581 (<a href='https://wa.link/vvfign' target='_blank'>WhatsApp</a>)<br>📞 **Miss Law**: 010-9613839 (<a href='https://wa.me/60109613839' target='_blank'>WhatsApp</a>)<br>📞 **SCT Office**: 010-2556806 (<a href='https://wa.me/60102556806' target='_blank'>WhatsApp</a>)",
-            ms: "Untuk pertanyaan, sila hubungi kami:<br>📞 **Jordan Yap**: 014-8818581 (<a href='https://wa.link/vvfign' target='_blank'>WhatsApp</a>)<br>📞 **Miss Law**: 010-9613839 (<a href='https://wa.me/60109613839' target='_blank'>WhatsApp</a>)<br>📞 **SCT Office**: 010-2556806 (<a href='https://wa.me/60102556806' target='_blank'>WhatsApp</a>)"
-        }
-    },
-    {
-        // Facebook
-        keywords: ["facebook", "fb", "page", "social", "脸书", "面子书", "专页", "laman fb", "muka buku"],
-        answers: {
-            en: "Follow our Facebook page for the latest updates: <a href='https://www.facebook.com/siongcheongtrading' target='_blank'>Siong Cheong Trading FB</a>",
-            zh: "关注我们的 Facebook 专页以获取最新消息：<a href='https://www.facebook.com/siongcheongtrading' target='_blank'>Siong Cheong Trading FB</a>",
-            ms: "Ikuti laman Facebook kami untuk kemas kini terbaru: <a href='https://www.facebook.com/siongcheongtrading' target='_blank'>Siong Cheong Trading FB</a>"
+            en: "Business hours:<br>📅 **Mon - Sat**: 9am - 6pm<br>📅 **Sun & Public Holidays**: 9am - 3pm",
+            zh: "营业时间：<br>📅 **周一至周六**: 9am - 6pm<br>📅 **周日及公共假期**: 9am - 3pm",
+            ms: "Waktu operasi:<br>📅 **Isnin - Sabtu**: 9am - 6pm<br>📅 **Ahad & Cuti Umum**: 9am - 3pm"
         }
     },
 
     // ---------------------------------------------------------
-    // 2. GENERAL PRODUCT INFO
+    // 2. SHARP REFRIGERATOR MODELS (BASED ON LATEST TABLE)
     // ---------------------------------------------------------
     {
-        // Fridge
-        keywords: ["fridge", "refrigerator", "cold", "food", "inverter", "冰箱", "雪柜", "冷藏", "peti sejuk", "ais", "sejuk"],
+        keywords: ["SJX6322MS", "6322MS"],
         answers: {
-            en: "Our refrigerators feature **Inverter Technology** (saves 40% energy) and **No-Frost** systems. Keeps food fresh longer.",
-            zh: "我们的冰箱配备了**变频技术**（节能40%）和**无霜系统**。无需手动除霜，让食物保鲜更久。",
-            ms: "Peti sejuk kami mempunyai **Teknologi Inverter** (jimat tenaga 40%) dan sistem **Tanpa Fros**. Makanan kekal segar lebih lama."
+            en: "Model: **SJX6322MS**<br>Capacity: 620L<br>Type: 2-Door (Silver)<br>Inverter: No ❌<br>🛡️ Warranty: 1 Yr General / 5 Yrs Compressor<br>💡 Professional Note: Fixed frequency model, high storage capacity but higher power consumption.",
+            zh: "型号: **SJX6322MS**<br>容量: 620L<br>门型: 双门 (银色)<br>变频: 否 ❌<br>🛡️ 保修: 1年整机 / 5年压缩机<br>💡 专业备注: 定频型号，空间大但耗电量相对较高。",
+            ms: "Model: **SJX6322MS**<br>Kapasiti: 620L<br>Inverter: Tiada ❌<br>🛡️ Waranti: 1 Thn Umum / 5 Thn Pemampat<br>💡 Nota: Model tetap, penggunaan elektrik lebih tinggi."
         }
     },
     {
-        // Freezer
-        keywords: ["freezer", "ice", "frozen", "chest freezer", "冷冻", "冻柜", "结冰", "peti beku", "beku"],
+        keywords: ["SJP735MBK", "735MBK"],
         answers: {
-            en: "Our Chest Freezers offer massive capacity with **Dual Cooling** modes (fridge/freezer convertible) and rapid freezing.",
-            zh: "我们的冷柜提供超大容量，具备**双重冷却**模式（可切换冷藏/冷冻），并拥有快速冷冻功能。",
-            ms: "Peti sejuk beku kami menawarkan kapasiti besar dengan mod **Penyejukan Dwi** (boleh tukar peti sejuk/beku) dan pembekuan pantas."
+            en: "Model: **SJP735MBK**<br>Capacity: 700L<br>Type: Side-by-Side (Black)<br>Inverter: No ❌<br>🛡️ Warranty: 1 Yr General / 5 Yrs Compressor<br>💡 Professional Note: Large capacity for big families, but lacks energy-saving inverter tech.",
+            zh: "型号: **SJP735MBK**<br>容量: 700L<br>门型: 对开门 (黑色)<br>变频: 否 ❌<br>🛡️ 保修: 1年整机 / 5年压缩机<br>💡 专业备注: 超大容量适合大家庭，但由于非变频，不属于节能款。",
+            ms: "Model: **SJP735MBK**<br>Kapasiti: 700L<br>Inverter: Tiada ❌<br>🛡️ Waranti: 1 Thn Umum / 5 Thn Pemampat<br>💡 Nota: Kapasiti besar tapi tidak jimat elektrik."
         }
     },
     {
-        // Air Conditioner
-        keywords: ["ac", "air conditioner", "cool", "hot", "quiet", "aircond", "air con", "空调", "冷气", "penghawa dingin", "aircon"],
+        keywords: ["SJP682MFGK", "682MFGK"],
         answers: {
-            en: "Our ACs operate at an ultra-quiet **21dB** with **Smart Wi-Fi Control**. Cool your room via phone before arriving home!",
-            zh: "我们的空调运行噪音低至 **21dB**，并支持**智能 Wi-Fi 控制**。您可以在回家前用手机预先开启冷气！",
-            ms: "Penghawa dingin kami beroperasi senyap pada **21dB** dengan **Kawalan Wi-Fi Pintar**. Sejukkan bilik melalui telefon sebelum sampai rumah!"
+            en: "Model: **SJP682MFGK**<br>Capacity: 610L<br>Type: 2-Door (Dark Finish)<br>🛡️ Warranty: 1 Yr General / 5 Yrs Compressor<br>💡 Note: Non-inverter model.",
+            zh: "型号: **SJP682MFGK**<br>容量: 610L<br>门型: 双门 (深色外观)<br>🛡️ 保修: 1年整机 / 5年压缩机<br>💡 专业备注: 传统非变频型号。",
+            ms: "Model: **SJP682MFGK**<br>Kapasiti: 610L<br>Waranti: 1 Thn Umum / 5 Thn Pemampat"
         }
     },
     {
-        // Washer
-        keywords: ["washer", "washing", "laundry", "clean", "clothes", "洗衣机", "洗衣服", "mesin basuh", "baju", "dobi"],
+        keywords: ["SJM60MK", "60MK", "mini bar"],
         answers: {
-            en: "We have Top & Front Load washers with **Steam Hygiene** (removes 99.9% bacteria) and anti-tangle technology.",
-            zh: "我们提供波轮和滚筒洗衣机，具备**蒸汽除菌**功能（去除99.9%细菌）以及防缠绕技术。",
-            ms: "Kami ada mesin basuh Muatan Atas & Depan dengan **Stim Higien** (basmi 99.9% bakteria) dan teknologi anti-lilit."
+            en: "Model: **SJM60MK**<br>Capacity: 60L<br>Type: Single Door (Black)<br>🛡️ Warranty: 1 Yr General / 5 Yrs Compressor<br>💡 Note: Perfect as a Mini Bar for rooms or offices.",
+            zh: "型号: **SJM60MK**<br>容量: 60L<br>门型: 单门 (黑色)<br>🛡️ 保修: 1年整机 / 5年压缩机<br>💡 专业备注: 迷你吧 (Mini Bar)，适合卧室或办公室。",
+            ms: "Model: **SJM60MK**<br>Kapasiti: 60L<br>Waranti: 1 Thn Umum / 5 Thn Pemampat<br>💡 Nota: Sesuai untuk bilik atau pejabat."
         }
     },
     {
-        // TV
-        keywords: ["tv", "television", "screen", "4k", "smart", "电视", "显示屏", "skrin", "android tv"],
+        keywords: ["SJS21VMSS", "21VMSS", "SJS21"],
         answers: {
-            en: "Our Smart TVs feature **4K UHD resolution** and built-in Android TV for Netflix/YouTube.",
-            zh: "我们的智能电视拥有 **4K UHD 超高清画质**，内置 Android TV 系统，轻松观看 Netflix 和 YouTube。",
-            ms: "TV Pintar kami menampilkan **resolusi 4K UHD** dan Android TV terbina dalam untuk Netflix/YouTube."
+            en: "Model: **SJS21VMSS**<br>Capacity: 700L<br>Type: Side-by-Side (Silver)<br>Inverter: Yes ✅<br>🛡️ Warranty: 1 Yr General / 10 Yrs Compressor<br>💡 Professional Note: High-end Inverter model. Features **Plasmacluster™ Ion** tech to eliminate 99% of bacteria and odors.",
+            zh: "型号: **SJS21VMSS**<br>容量: 700L<br>门型: 对开门 (银色)<br>变频: 是 (Inverter) ✅<br>🛡️ 保修: 1年整机 / 10年压缩机<br>💡 专业备注: 变频高端款。配备 **Plasmacluster™ 净离子群**除菌技术，长效保鲜除异味。",
+            ms: "Model: **SJS21VMSS**<br>Kapasiti: 700L<br>Inverter: Ya ✅<br>🛡️ Waranti: 1 Thn Umum / 10 Thn Pemampat<br>💡 Nota: Siri Inverter Premium dengan teknologi **Plasmacluster™**."
         }
     },
     {
-        // Delivery
-        keywords: ["delivery", "shipping", "ship", "arrive", "送货", "运输", "多久", "hantar", "penghantaran"],
+        keywords: ["SJS4422MSS", "4422MSS"],
         answers: {
-            en: "Delivery takes **3-5 working days**. We offer basic installation for large appliances.",
-            zh: "送货通常需要 **3-5 个工作日**。对于大型家电，我们也提供基本的安装服务。",
-            ms: "Penghantaran mengambil masa **3-5 hari bekerja**. Kami menyediakan pemasangan asas untuk peralatan besar."
+            en: "Model: **SJS4422MSS**<br>Capacity: 440L<br>Type: 2-Door (Silver)<br>Inverter: Yes ✅<br>🛡️ Warranty: 1 Yr General / 10 Yrs Compressor<br>💡 Professional Note: Mainstream energy-saving model. Efficient J-Tech Inverter tech.",
+            zh: "型号: **SJS4422MSS**<br>容量: 440L<br>门型: 双门 (银色)<br>变频: 是 (Inverter) ✅<br>🛡️ 保修: 1年整机 / 10年压缩机<br>💡 专业备注: 主流省电款，性价比极高，采用 J-Tech 变频技术。",
+            ms: "Model: **SJS4422MSS**<br>Kapasiti: 440L<br>Inverter: Ya ✅<br>🛡️ Waranti: 1 Thn Umum / 10 Thn Pemampat<br>💡 Nota: Model jimat elektrik yang paling popular."
         }
     },
     {
-        // Payment
-        keywords: ["payment", "pay", "card", "cash", "installment", "付款", "分期", "信用卡", "bayar", "bayaran", "kredit", "wang"],
+        keywords: ["SJS4122MSS", "4122MSS"],
         answers: {
-            en: "We accept Visa, Mastercard, Online Transfer, and E-Wallets. **0% Installment Plans** available for purchases >RM500.",
-            zh: "我们接受 Visa、Mastercard、网上转账和电子钱包。消费满 RM500 可享 **0% 分期付款**。",
-            ms: "Kami terima Visa, Mastercard, Pindahan Dalam Talian, dan E-Dompet. **Pelan Ansuran 0%** tersedia untuk pembelian >RM500."
+            en: "Model: **SJS4122MSS**<br>Capacity: 410L<br>Inverter: Yes ✅<br>🛡️ Warranty: 1 Yr General / 10 Yrs Compressor<br>💡 Professional Note: Super quiet operation, perfect for open-plan kitchens.",
+            zh: "型号: **SJS4122MSS**<br>容量: 410L<br>门型: 双门 (银色)<br>变频: 是 (Inverter) ✅<br>🛡️ 保修: 1年整机 / 10年压缩机<br>💡 专业备注: 运行非常安静，适合怕吵的家庭。",
+            ms: "Model: **SJS4122MSS**<br>Kapasiti: 410L<br>Inverter: Ya ✅<br>🛡️ Waranti: 1 Thn Umum / 10 Thn Pemampat"
         }
     },
     {
-        // Warranty
-        keywords: ["warranty", "repair", "broken", "guarantee", "保修", "维修", "坏了", "jaminan", "waranti", "rosak"],
+        keywords: ["SJS3822MSS", "3822MSS"],
         answers: {
-            en: "Appliances come with **1-Year General Warranty**. Motors/Compressors often have **5-10 Years**. Keep your receipt!",
-            zh: "所有电器均享有至少 **1 年的一般保修**。电机/压缩机通常享有 **5-10 年保修**。请保留您的收据！",
-            ms: "Peralatan disertakan dengan **Jaminan Umum 1 Tahun**. Motor/Kompet pemampat selalunya ada **5-10 Tahun**. Simpan resit anda!"
+            en: "Model: **SJS3822MSS**<br>Capacity: 380L<br>Inverter: Yes ✅<br>🛡️ Warranty: 1 Yr General / 10 Yrs Compressor<br>💡 Professional Note: High cost-performance ratio. Energy efficient with Ag+ Deodorizer.",
+            zh: "型号: **SJS3822MSS**<br>容量: 380L<br>门型: 双门 (银色)<br>变频: 是 (Inverter) ✅<br>🛡️ 保修: 1年整机 / 10年压缩机<br>💡 专业备注: 高性价比之选。省电且带 Ag+ 纳米除臭系统。",
+            ms: "Model: **SJS3822MSS**<br>Kapasiti: 380L<br>Inverter: Ya ✅<br>🛡️ Waranti: 1 Thn Umum / 10 Thn Pemampat"
+        }
+    },
+    {
+        keywords: ["SJS2822MSS", "2822MSS"],
+        answers: {
+            en: "Model: **SJS2822MSS**<br>Capacity: 280L<br>Inverter: Yes ✅<br>🛡️ Warranty: 1 Yr General / 10 Yrs Compressor<br>💡 Professional Note: Compact energy saver for smaller households.",
+            zh: "型号: **SJS2822MSS**<br>容量: 280L<br>门型: 双门 (银色)<br>变频: 是 (Inverter) ✅<br>🛡️ 保修: 1年整机 / 10年压缩机<br>💡 专业备注: 小家庭首选，小体积却拥有变频省电技术。",
+            ms: "Model: **SJS2822MSS**<br>Kapasiti: 280L<br>Inverter: Ya ✅<br>🛡️ Waranti: 1 Thn Umum / 10 Thn Pemampat"
+        }
+    },
+    {
+        keywords: ["SJS189MS", "189MS"],
+        answers: {
+            en: "Model: **SJS189MS**<br>Capacity: 180L<br>Type: Single/Double Door (Silver)<br>🛡️ Warranty: 1 Yr General / 5 Yrs Compressor<br>💡 Note: Ideal for singles or small rentals.",
+            zh: "型号: **SJS189MS**<br>容量: 180L<br>门型: 单/双门 (银色)<br>🛡️ 保修: 1年整机 / 5年压缩机<br>💡 专业备注: 适合单身人士或出租房使用。",
+            ms: "Model: **SJS189MS**<br>Kapasiti: 180L<br>Waranti: 1 Thn Umum / 5 Thn Pemampat"
+        }
+    },
+
+    // ---------------------------------------------------------
+    // 3. PROFESSIONAL KNOWLEDGE (INVERTER VS NON-INVERTER)
+    // ---------------------------------------------------------
+    {
+        keywords: ["difference", "compare", "inverter vs non inverter", "save electricity", "省电", "变频", "定频", "差别", "比较", "jimat elektrik", "beza"],
+        answers: {
+            en: "### Why choose Sharp J-Tech Inverter?<br>🔋 **Energy Saving**: Saves 20%–40% on electricity bills (Crucial for MY tariffs!)<br>🔇 **Quiet**: Much lower noise level, ideal for Condos/Apartments.<br>♻️ **Durability**: Compressor lasts longer, which is why we offer a **10-Year Warranty**.<br><hr>### Non-Inverter (Fixed Frequency):<br>💰 **Low Price**: Cheaper upfront cost.<br>⚡ **Higher Bill**: Frequent start-stops consume more electricity.<br>🧯 **Warranty**: Only 5 years on compressor.",
+            zh: "### 为什么推荐 Sharp J-Tech 变频 (Inverter)?<br>🔋 **极度省电**: 比普通冰箱省电 20%–40%（长期下来省下不少电费！）<br>🔇 **超静音**: 运作声音极小，非常适合公寓或 Condo。<br>♻️ **更长寿命**: 变频压缩机损耗小，所以我们提供 **10年保修**。<br><hr>### 非变频 (定频) 特点:<br>💰 **价格便宜**: 购买成本低。<br>⚡ **耗电较高**: 压缩机频繁启停，非常吃电。<br>🧯 **保修较短**: 压缩机保修通常只有 5 年。",
+            ms: "### Kenapa pilih Sharp J-Tech Inverter?<br>🔋 **Jimat Elektrik**: Penjimatan 20%–40% (Sangat penting di Malaysia!)<br>🔇 **Senyap**: Tahap bunyi lebih rendah, sesuai untuk Condo/Apartmen.<br>♻️ **Tahan Lama**: Pemampat tahan lebih lama, sebab itu kami beri **Waranti 10 Tahun**.<br><hr>### Non-Inverter (Fixed Frequency):<br>💰 **Harga Murah**: Kos beli lebih rendah.<br>⚡ **Bil Tinggi**: Kerap 'start-stop' guna banyak elektrik.<br>🧯 **Waranti**: Biasanya hanya 5 tahun untuk pemampat."
+        }
+    },
+    {
+        keywords: ["plasmacluster", "ion", "bacteria", "smell", "等离子", "除菌", "除臭", "味道"],
+        answers: {
+            en: "Sharp's unique **Plasmacluster™ Ion** technology emits positive and negative ions to neutralize 99% of bacteria, viruses, and mold. It keeps your food fresh and prevents cross-contamination of food smells.",
+            zh: "Sharp 独有的 **Plasmacluster™ 净离子群**技术能释放正负离子，有效抑制 99% 的细菌、病毒和霉菌。它能确保冰箱内空气清新，防止食物异味交叉感染。",
+            ms: "Teknologi **Plasmacluster™ Ion** Sharp membebaskan ion positif dan negatif untuk meneutralkan 99% bakteria dan kulat. Ia menjaga kesegaran makanan dan menghilangkan bau busuk."
         }
     }
 ];
