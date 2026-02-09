@@ -27,301 +27,96 @@
             font-family: 'Lato', sans-serif;
             background-color: var(--bg-body);
             color: var(--text-main);
-            min-height: 100vh;
+            height: 100vh;
             display: flex;
             flex-direction: column;
-            margin: 0;
-            overflow-x: hidden;
-        }
-
-        /* ------------------- Sidebar Styles ------------------- */
-        .sidebar {
-            height: 100%;
-            width: 0;
-            position: fixed;
-            z-index: 2000;
-            top: 0;
-            left: 0;
-            background-color: #080d16;
-            overflow-x: hidden;
-            padding-top: 60px;
-            transition: 0.5s;
-            box-shadow: 2px 0 10px rgba(0,0,0,0.5);
-            border-right: 1px solid var(--border-color);
-            white-space: nowrap;
-        }
-
-        .sidebar a, .sidebar .submenu-toggle {
-            padding: 15px 25px;
-            text-decoration: none;
-            font-size: 1.1em;
-            color: var(--text-sub);
-            display: block;
-            transition: 0.3s;
-            border-bottom: 1px solid var(--border-color);
-            cursor: pointer;
-        }
-
-        .sidebar a:hover, .sidebar .submenu-toggle:hover {
-            color: var(--accent);
-            background: rgba(255,255,255,0.05);
-        }
-
-        .closebtn {
-            position: absolute;
-            top: 0;
-            right: 25px;
-            font-size: 36px;
-            line-height: 50px;
-            color: var(--text-sub);
-            cursor: pointer;
-        }
-
-        .submenu {
-            display: none;
-            background-color: #0b1221;
-            padding-left: 20px;
-        }
-
-        .overlay {
-            position: fixed;
-            height: 100%;
-            width: 100%;
-            top: 0;
-            left: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1500;
-            display: none;
-        }
-
-        #main-content {
-            transition: margin-left 0.5s;
-            width: 100%;
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+            overflow: hidden; /* Prevent body scroll */
         }
 
         /* ------------------- Header ------------------- */
         header {
+            flex-shrink: 0;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 40px;
-            height: 120px;
-            background-color: transparent;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .menu-icon {
-            font-size: 24px;
-            cursor: pointer;
-            color: var(--text-main);
-            transition: color 0.3s;
-        }
-        .menu-icon:hover { color: var(--accent); }
-
-        .brand-name {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            font-size: 20px;
-            color: var(--text-main);
-            text-decoration: none;
-        }
-
-        .back-link {
-            color: var(--text-sub);
-            text-decoration: none;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .back-link:hover { color: var(--accent); }
-
-        /* ------------------- Chat Layout ------------------- */
-        .assistant-container {
-            max-width: 900px;
-            margin: 40px auto;
             padding: 0 20px;
-            width: 100%;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
+            height: 70px;
+            background-color: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 10;
         }
 
-        /* Top Controls: Title & Language */
-        .controls-area {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
+        .header-left { display: flex; align-items: center; gap: 15px; }
+        .back-btn { color: var(--text-sub); font-size: 1.2rem; cursor: pointer; text-decoration: none; }
+        .back-btn:hover { color: var(--accent); }
+        .bot-title { font-weight: 700; font-size: 1.1rem; }
+        .status-dot { height: 10px; width: 10px; background-color: #22c55e; border-radius: 50%; display: inline-block; margin-left: 8px; }
 
-        .assistant-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-        }
-
-        .language-selector {
-            display: flex;
-            gap: 10px;
-        }
-
-        .lang-btn {
-            background-color: transparent;
-            border: 1px solid var(--border-color);
-            color: var(--text-sub);
-            padding: 6px 15px;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: 0.3s;
-            font-size: 0.9rem;
-        }
-
-        .lang-btn:hover {
-            border-color: var(--accent);
-            color: var(--text-main);
-        }
-
-        .lang-btn.active {
-            background-color: var(--accent);
-            border-color: var(--accent);
-            color: #000;
-            font-weight: bold;
-        }
-
-        /* Chat Box */
-        .chat-window {
-            background-color: rgba(22, 32, 48, 0.6);
-            border: 1px solid var(--border-color);
-            border-radius: 12px 12px 0 0;
-            height: 500px; /* Fixed height for scroll */
+        /* ------------------- Chat Area ------------------- */
+        #chat-container {
+            flex: 1;
             overflow-y: auto;
             padding: 20px;
             display: flex;
             flex-direction: column;
             gap: 15px;
-            /* Custom Scrollbar */
-            scrollbar-width: thin;
-            scrollbar-color: var(--border-color) transparent;
+            scroll-behavior: smooth;
         }
-        
-        .chat-window::-webkit-scrollbar { width: 8px; }
-        .chat-window::-webkit-scrollbar-thumb { background-color: var(--border-color); border-radius: 4px; }
 
-        /* Messages */
         .message {
             max-width: 80%;
-            padding: 12px 18px;
-            border-radius: 18px;
-            font-size: 1rem;
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-size: 0.95rem;
             line-height: 1.5;
             position: relative;
-            animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             word-wrap: break-word;
+            animation: fadeIn 0.3s ease;
         }
 
-        @keyframes popIn {
-            from { opacity: 0; transform: scale(0.9) translateY(10px); }
-            to { opacity: 1; transform: scale(1) translateY(0); }
-        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Bot Message */
-        .message.bot {
+        .bot-msg {
             align-self: flex-start;
             background-color: var(--chat-bot-bg);
-            color: var(--text-sub);
-            border-bottom-left-radius: 4px;
             border: 1px solid var(--border-color);
+            color: var(--text-main);
+            border-top-left-radius: 2px;
         }
 
-        /* User Message */
-        .message.user {
+        .user-msg {
             align-self: flex-end;
             background-color: var(--chat-user-bg);
-            color: #000; /* Dark text on bright blue */
-            font-weight: 500;
-            border-bottom-right-radius: 4px;
+            color: #fff; /* White text on blue */
+            border-top-right-radius: 2px;
         }
         
-        .message-time {
-            font-size: 0.7rem;
-            opacity: 0.6;
-            margin-top: 5px;
-            text-align: right;
-            display: block;
-        }
+        /* Links in bot messages */
+        .bot-msg a { color: var(--accent); text-decoration: underline; }
 
-        /* Quick Suggestions */
-        .suggestions-bar {
+        /* ------------------- Input Area ------------------- */
+        .input-area {
+            flex-shrink: 0;
+            padding: 15px;
             background-color: var(--bg-card);
-            border-left: 1px solid var(--border-color);
-            border-right: 1px solid var(--border-color);
-            padding: 10px 20px;
+            border-top: 1px solid var(--border-color);
             display: flex;
             gap: 10px;
-            overflow-x: auto;
-            white-space: nowrap;
-            /* Hide scrollbar but keep functionality */
-            -ms-overflow-style: none; 
-            scrollbar-width: none;
-        }
-        .suggestions-bar::-webkit-scrollbar { display: none; }
-
-        .tag {
-            background-color: rgba(255,255,255,0.05);
-            padding: 6px 14px;
-            border-radius: 15px;
-            font-size: 0.85rem;
-            color: var(--text-sub);
-            cursor: pointer;
-            transition: 0.3s;
-            border: 1px solid transparent;
-        }
-
-        .tag:hover {
-            background-color: transparent;
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-
-        /* Input Area */
-        .input-area {
-            background-color: var(--bg-card);
-            padding: 15px 20px;
-            border-radius: 0 0 12px 12px;
-            border: 1px solid var(--border-color);
-            border-top: none;
-            display: flex;
-            gap: 15px;
             align-items: center;
         }
 
-        .chat-input {
-            flex-grow: 1;
-            background-color: rgba(0,0,0,0.2);
+        #user-input {
+            flex: 1;
+            background-color: var(--bg-body);
             border: 1px solid var(--border-color);
-            padding: 12px 20px;
-            border-radius: 25px;
             color: var(--text-main);
-            font-size: 1rem;
+            padding: 12px 15px;
+            border-radius: 25px;
             outline: none;
-            transition: 0.3s;
+            font-family: inherit;
         }
 
-        .chat-input:focus {
-            border-color: var(--accent);
-        }
+        #user-input:focus { border-color: var(--accent); }
 
         .send-btn {
             background-color: var(--accent);
@@ -334,249 +129,152 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
-            transition: 0.3s;
+            font-size: 1.1rem;
+            transition: transform 0.2s;
         }
 
-        .send-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 15px rgba(41, 182, 246, 0.3);
-        }
+        .send-btn:hover { transform: scale(1.05); }
 
-        /* Footer */
-        .footer {
-            margin-top: auto;
-            text-align: center;
-            padding: 20px;
+        /* ------------------- Language Toggle ------------------- */
+        .lang-switch {
+            display: flex;
+            gap: 5px;
+        }
+        .lang-btn {
+            background: none;
+            border: 1px solid var(--border-color);
             color: var(--text-sub);
-            border-top: 1px solid var(--border-color);
+            padding: 4px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+        .lang-btn.active {
+            background-color: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            header { padding: 0 20px; height: 100px; }
-            .assistant-title { font-size: 1.5rem; }
-            .brand-name { font-size: 16px; }
-            .header-left { gap: 10px; }
-            .controls-area { flex-direction: column; align-items: flex-start; gap: 10px; }
-            .language-selector { width: 100%; justify-content: space-between; }
-            .lang-btn { flex-grow: 1; text-align: center; padding: 8px 0; }
-            .chat-window { height: 60vh; }
-        }
     </style>
 </head>
 <body>
 
-    <!-- Sidebar -->
-    <div id="mySidebar" class="sidebar">
-        <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">&times;</a>
-        <a href="index.html">Home</a>
-        <a href="support.html" class="active" style="color:var(--accent); font-weight:bold;"><i class="fas fa-robot"></i> Smart Assistant</a>
-        
-        <div class="submenu-toggle" onclick="toggleSubmenu(this)">Products</div>
-        <div class="submenu" id="sidebar-submenu">
-            <a href="refrigerator.html">Refrigerator</a>
-            <a href="chiller.html">Chiller</a>
-            <a href="freezer.html">Freezer</a>
-            <a href="ac.html">Air Conditioner</a>
-            <a href="portable_ac.html">Portable Air Cond</a>
-            <a href="tv.html">TV</a>
-            <a href="washer.html">Washer</a>
-            <a href="dryer.html">Dryer</a>
-            <a href="kitchen.html">Kitchen Appliances</a>
-            <a href="hood.html">Hood</a>
-            <a href="gas.html">Gas</a>
-            <a href="oven.html">Oven</a>
-            <a href="microwave.html">Microwave</a>
-            <a href="air_fryer.html">Air Fryer</a>
-            <a href="shower.html">Shower</a>
-            <a href="air_purifier.html">Air Purifier</a>
+    <header>
+        <div class="header-left">
+            <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i></a>
+            <div class="bot-info">
+                <div class="bot-title">SCT Smart Assistant <span class="status-dot"></span></div>
+                <div style="font-size: 0.8rem; color: var(--text-sub);">Always online</div>
+            </div>
         </div>
-        <a href="about.html">About Us</a>
-        <a href="location.html">Our Location</a>
-        <a href="contact.html">Contact Us</a>
+        <div class="lang-switch">
+            <button class="lang-btn active" onclick="setLang('en')">EN</button>
+            <button class="lang-btn" onclick="setLang('zh')">中</button>
+            <button class="lang-btn" onclick="setLang('ms')">MS</button>
+        </div>
+    </header>
+
+    <div id="chat-container">
+        <!-- Initial Greeting -->
+        <div class="message bot-msg" id="greeting-msg">
+            Hi! I am the Siong Cheong Trading AI Assistant. How can I help you today? <br><br>
+            Try asking: "Where is your shop?", "Business hours?", or "Do you sell fridges?"
+        </div>
     </div>
 
-    <!-- Overlay -->
-    <div id="overlay" class="overlay" onclick="toggleNav()"></div>
-
-    <!-- Main Content -->
-    <div id="main-content">
-
-        <header>
-            <div class="header-left">
-                <div class="menu-icon" onclick="toggleNav()">
-                    <i class="fas fa-bars"></i>
-                </div>
-                <a href="index.html" class="brand-name">SIONG CHEONG TRADING SDN.BHD</a>
-            </div>
-            
-            <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
-        </header>
-
-        <div class="assistant-container">
-            
-            <!-- Top Controls -->
-            <div class="controls-area">
-                <div class="assistant-title"><i class="fas fa-robot" style="color:var(--accent); margin-right:10px;"></i> Smart Assistant</div>
-                <div class="language-selector">
-                    <button class="lang-btn active" onclick="setLanguage('en', this)">English</button>
-                    <button class="lang-btn" onclick="setLanguage('ms', this)">BM</button>
-                    <button class="lang-btn" onclick="setLanguage('zh', this)">中文</button>
-                </div>
-            </div>
-
-            <!-- Chat Window -->
-            <div class="chat-window" id="chatWindow">
-                <!-- Messages will appear here -->
-            </div>
-
-            <!-- Quick Suggestions (Scrollable) -->
-            <div class="suggestions-bar">
-                <div class="tag" onclick="handleSend('Fridge')">Fridge</div>
-                <div class="tag" onclick="handleSend('Aircond')">Aircond</div>
-                <div class="tag" onclick="handleSend('Warranty')">Warranty</div>
-                <div class="tag" onclick="handleSend('Payment')">Payment</div>
-                <div class="tag" onclick="handleSend('Delivery')">Delivery</div>
-                <div class="tag" onclick="handleSend('Contact')">Contact Us</div>
-            </div>
-
-            <!-- Input Area -->
-            <div class="input-area">
-                <input type="text" id="chatInput" class="chat-input" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
-                <button class="send-btn" onclick="handleSend()"><i class="fas fa-paper-plane"></i></button>
-            </div>
-        </div>
-
-        <div class="footer">
-            &copy; 2023 SIONG CHEONG TRADING SDN.BHD. Smart Assistant System.
-        </div>
-
+    <div class="input-area">
+        <input type="text" id="user-input" placeholder="Type a message..." autocomplete="off">
+        <button class="send-btn" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
     </div>
 
-    <!-- 1. 引入外部数据库文件 -->
+    <!-- 引用外部知识库文件 -->
     <script src="knowledge-base.js"></script>
 
     <script>
-        // Default Language
         let currentLang = 'en';
 
-        // Welcome Messages
-        const welcomeMessages = {
-            en: "Hello! I am your Smart Assistant. You can ask me about our products (Fridge, AC, Washer), warranty, or payment methods. How can I help you today?",
-            ms: "Helo! Saya Pembantu Pintar anda. Anda boleh bertanya tentang produk kami (Peti Sejuk, Aircond, Mesin Basuh), waranti, atau kaedah pembayaran. Bagaimana saya boleh bantu anda hari ini?",
-            zh: "你好！我是您的智能助手。您可以询问有关我们产品（冰箱，空调，洗衣机），保修或付款方式的问题。请问有什么可以帮您？"
+        // Updated Greetings
+        const greetings = {
+            en: "Hi! I am the Siong Cheong Trading AI Assistant. How can I help you today?",
+            zh: "您好！我是 Siong Cheong Trading 智能助手。今天有什么可以帮您的吗？",
+            ms: "Hai! Saya Pembantu AI Siong Cheong Trading. Ada apa-apa yang boleh saya bantu?"
         };
 
+        // NEW: Fallback Error Messages (Direct to Jordan Yap)
         const errorMessages = {
-            en: "I'm sorry, I couldn't find specific information for that. Try asking about 'Fridge', 'Warranty', or 'Location'.",
-            ms: "Maaf, saya tidak dapat mencari maklumat tersebut. Cuba tanya tentang 'Peti Sejuk', 'Waranti', atau 'Lokasi'.",
-            zh: "抱歉，我找不到相关信息。请尝试询问“冰箱”、“保修”或“地址”。"
+            en: "I'm not sure about that. Please contact **Jordan Yap** at **014-8818581** or <a href='https://wa.link/vvfign' target='_blank'>Click here to WhatsApp</a> for assistance.",
+            zh: "抱歉，我不太明白。请联系 **Jordan Yap (014-8818581)** 或 <a href='https://wa.link/vvfign' target='_blank'>点击这里 WhatsApp</a> 以获得帮助。",
+            ms: "Maaf, saya kurang pasti. Sila hubungi **Jordan Yap** di **014-8818581** atau <a href='https://wa.link/vvfign' target='_blank'>Klik sini untuk WhatsApp</a> untuk bantuan."
         };
 
-        // Initialize
-        window.onload = function() {
-            setLanguage('en', document.querySelector('.lang-btn.active'));
+        const userInput = document.getElementById("user-input");
+        const chatContainer = document.getElementById("chat-container");
 
-            // [NEW] Check for URL parameter 'ask' from Product Page
-            const urlParams = new URLSearchParams(window.location.search);
-            const askQuery = urlParams.get('ask');
-            
-            if (askQuery) {
-                // Wait a bit for the welcome message to appear, then send the query
-                setTimeout(() => {
-                    handleSend(askQuery);
-                }, 800);
+        // Allow Enter key to send
+        userInput.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                sendMessage();
             }
-        };
+        });
 
-        // ------------------- Language Logic -------------------
-        function setLanguage(lang, btnElement) {
+        function setLang(lang) {
             currentLang = lang;
-
-            // Update Buttons
-            const buttons = document.querySelectorAll('.lang-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            if(btnElement) btnElement.classList.add('active');
-
-            // Update Placeholder
-            const input = document.getElementById('chatInput');
-            if(lang === 'zh') input.placeholder = "请输入消息...";
-            else if(lang === 'ms') input.placeholder = "Tulis mesej anda...";
-            else input.placeholder = "Type your message...";
-
-            // Clear Chat and Show Welcome Message
-            const chatWindow = document.getElementById('chatWindow');
-            chatWindow.innerHTML = ''; // Clear history
             
-            // Add Welcome Message
-            addMessage(welcomeMessages[lang], 'bot');
+            // Update buttons UI
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Update greeting text immediately if it's the only message
+            const greetingMsg = document.getElementById('greeting-msg');
+            if(chatContainer.children.length === 1 && greetingMsg) {
+                 greetingMsg.innerHTML = greetings[lang];
+            }
         }
 
-        // ------------------- Chat Logic -------------------
-        function handleSend(text = null) {
-            const input = document.getElementById('chatInput');
-            const messageText = text || input.value.trim();
-
-            if (!messageText) return;
+        function sendMessage() {
+            const text = userInput.value.trim();
+            if (text === "") return;
 
             // 1. Add User Message
-            addMessage(messageText, 'user');
-            input.value = '';
+            addMessage(text, 'user-msg');
+            userInput.value = "";
 
-            // 2. Simulate Thinking (optional delay) & Find Answer
+            // 2. Simulate Bot Thinking
             setTimeout(() => {
-                const answer = findAnswerInDB(messageText);
-                addMessage(answer, 'bot');
-            }, 500);
+                const response = findAnswer(text);
+                addMessage(response, 'bot-msg');
+            }, 600);
         }
 
-        function addMessage(text, sender) {
-            const chatWindow = document.getElementById('chatWindow');
-            const msgDiv = document.createElement('div');
-            
-            msgDiv.classList.add('message', sender);
-            
-            // Get Current Time
-            const now = new Date();
-            const timeString = now.getHours().toString().padStart(2, '0') + ":" + now.getMinutes().toString().padStart(2, '0');
-
-            msgDiv.innerHTML = `
-                ${text}
-                <span class="message-time">${timeString}</span>
-            `;
-
-            chatWindow.appendChild(msgDiv);
-            
-            // Auto Scroll to Bottom
-            chatWindow.scrollTop = chatWindow.scrollHeight;
+        function addMessage(text, className) {
+            const div = document.createElement("div");
+            div.className = `message ${className}`;
+            div.innerHTML = text; // allow HTML for links
+            chatContainer.appendChild(div);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
         }
 
-        function handleKeyPress(e) {
-            if (e.key === 'Enter') {
-                handleSend();
+        function findAnswer(input) {
+            // Check if knowledgeBase is loaded
+            if (typeof knowledgeBase === 'undefined') {
+                return "Error: Database not loaded. Please contact Jordan Yap directly.";
             }
-        }
 
-        // ------------------- Database Search Logic -------------------
-        function findAnswerInDB(input) {
-            const lowerInput = input.toLowerCase();
+            const question = input.toLowerCase();
             let bestMatch = null;
             let maxKeywordsFound = 0;
 
-            if (typeof knowledgeBase === 'undefined') {
-                return "Error: Database not loaded.";
-            }
-
+            // Find best match in knowledge base
             knowledgeBase.forEach(item => {
                 let keywordsFound = 0;
-                item.keywords.forEach(keyword => {
-                    if (lowerInput.includes(keyword.toLowerCase())) {
+                item.keywords.forEach(k => {
+                    // Check if keyword exists in the user question
+                    if (question.includes(k.toLowerCase())) {
                         keywordsFound++;
                     }
                 });
 
-                if (keywordsFound > maxKeywordsFound) {
+                if (keywordsFound > 0 && keywordsFound > maxKeywordsFound) {
                     maxKeywordsFound = keywordsFound;
                     bestMatch = item;
                 }
@@ -586,33 +284,9 @@
                 // Return answer in current language, fallback to EN
                 return bestMatch.answers[currentLang] || bestMatch.answers['en'];
             } else {
+                // Return the specific "Contact Jordan Yap" fallback
                 return errorMessages[currentLang];
             }
-        }
-
-        // ------------------- Sidebar Logic -------------------
-        function toggleNav() {
-            const sidebar = document.getElementById("mySidebar");
-            const overlay = document.getElementById("overlay");
-            const body = document.body;
-            const isOpened = sidebar.style.width === "250px";
-
-            if (isOpened) {
-                sidebar.style.width = "0";
-                document.getElementById("main-content").style.marginLeft = "0";
-                overlay.style.display = "none";
-                body.style.overflow = "auto";
-            } else {
-                sidebar.style.width = "250px";
-                document.getElementById("main-content").style.marginLeft = "250px";
-                overlay.style.display = "block";
-                body.style.overflow = "hidden";
-            }
-        }
-
-        function toggleSubmenu(element) {
-            const submenu = element.nextElementSibling;
-            submenu.style.display = submenu.style.display === "block" ? "none" : "block";
         }
     </script>
 </body>
