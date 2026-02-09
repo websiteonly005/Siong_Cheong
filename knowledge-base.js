@@ -24,13 +24,12 @@ const knowledgeBase = [
         }
     },
     {
-        // Contact / WhatsApp / Photos (Improved Keywords)
-        // 增加了 "ws", "watsapp", "hp", "call" 等常见词
+        // Contact / WhatsApp / Photos (Updated with Miss Law & SCT Office)
         keywords: ["contact", "whatsapp", "whats app", "watsapp", "ws", "phone", "hp", "call", "photo", "picture", "image", "电话", "联系", "号码", "照片", "图片", "联络", "hubungi", "telefon", "nombor", "gambar", "foto", "wasap"],
         answers: {
-            en: "For inquiries or to see **more product photos**, please WhatsApp **Jordan Yap** at **014-8818581**.<br><a href='https://wa.link/vvfign' target='_blank' style='color:#29b6f6; font-weight:bold;'>Click here to WhatsApp</a>",
-            zh: "欲咨询或查看**更多产品图片**，请 WhatsApp 联系 **Jordan Yap (014-8818581)**。<br><a href='https://wa.link/vvfign' target='_blank' style='color:#29b6f6; font-weight:bold;'>点击这里 WhatsApp</a>",
-            ms: "Untuk pertanyaan atau lihat **lebih banyak gambar**, sila WhatsApp **Jordan Yap** di **014-8818581**.<br><a href='https://wa.link/vvfign' target='_blank' style='color:#29b6f6; font-weight:bold;'>Klik sini untuk WhatsApp</a>"
+            en: "For inquiries, please contact us:<br>📞 **Jordan Yap**: 014-8818581 (<a href='https://wa.link/vvfign' target='_blank'>WhatsApp</a>)<br>📞 **Miss Law**: 010-9613839<br>📞 **SCT Office**: 010-2556806",
+            zh: "欲咨询请联系我们：<br>📞 **Jordan Yap**: 014-8818581 (<a href='https://wa.link/vvfign' target='_blank'>WhatsApp</a>)<br>📞 **Miss Law**: 010-9613839<br>📞 **SCT Office**: 010-2556806",
+            ms: "Untuk pertanyaan, sila hubungi kami:<br>📞 **Jordan Yap**: 014-8818581 (<a href='https://wa.link/vvfign' target='_blank'>WhatsApp</a>)<br>📞 **Miss Law**: 010-9613839<br>📞 **SCT Office**: 010-2556806"
         }
     },
     {
