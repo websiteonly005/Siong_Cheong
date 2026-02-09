@@ -1,14 +1,13 @@
-// Smart Assistant Database (Multi-Language) - Updated for Siong Cheong Trading
-// 智能助手数据库（多语言版）
+// Smart Assistant Database (Multi-Language)
 // Structure: { keywords: [...], answers: { en: "...", zh: "...", ms: "..." } }
 
 const knowledgeBase = [
     // ---------------------------------------------------------
-    // 1. SPECIFIC BUSINESS INFO (Based on your input)
+    // 1. SPECIFIC BUSINESS INFO
     // ---------------------------------------------------------
     {
         // Location / Address
-        keywords: ["location", "address", "where", "shop", "branch", "map", "地址", "地点", "哪里", "分行", "地图", "lokasi", "kedai", "mana", "cawangan", "peta"],
+        keywords: ["location", "address", "where", "shop", "branch", "map", "place", "地址", "地点", "哪里", "分行", "地图", "位置", "lokasi", "kedai", "mana", "cawangan", "peta", "tempat"],
         answers: {
             en: "We have two branches in Kuching:<br>1. **Kota Sentosa (Batu 7)**: <a href='https://maps.app.goo.gl/QwziW8derXDtCiGr8' target='_blank'>View Map</a><br>2. **Aeroville Mall (1st Floor)**: <a href='https://maps.app.goo.gl/Mn9QCJ5xtkUbE29z8' target='_blank'>View Map</a>",
             zh: "我们在古晋有两家分行：<br>1. **Kota Sentosa (七哩)**: <a href='https://maps.app.goo.gl/QwziW8derXDtCiGr8' target='_blank'>查看地图</a><br>2. **Aeroville Mall (一楼)**: <a href='https://maps.app.goo.gl/Mn9QCJ5xtkUbE29z8' target='_blank'>查看地图</a>",
@@ -17,7 +16,7 @@ const knowledgeBase = [
     },
     {
         // Operating Hours
-        keywords: ["hours", "open", "close", "time", "when", "营业时间", "几点", "开门", "关门", "休息", "masa", "buka", "tutup", "jam"],
+        keywords: ["hours", "open", "close", "time", "when", "business hour", "营业时间", "几点", "开门", "关门", "休息", "时间", "masa", "buka", "tutup", "jam", "waktu"],
         answers: {
             en: "Our business hours are:<br>📅 **Mon - Sat**: 9am - 6pm<br>📅 **Sun & Public Holidays**: 9am - 3pm",
             zh: "我们的营业时间：<br>📅 **周一至周六**: 9am - 6pm<br>📅 **周日及公共假期**: 9am - 3pm",
@@ -25,8 +24,9 @@ const knowledgeBase = [
         }
     },
     {
-        // Contact / WhatsApp / Photos (Combined for better user experience)
-        keywords: ["contact", "whatsapp", "phone", "call", "photo", "picture", "more info", "image", "电话", "联系", "照片", "图片", "更多", "hubungi", "telefon", "gambar", "foto"],
+        // Contact / WhatsApp / Photos (Improved Keywords)
+        // 增加了 "ws", "watsapp", "hp", "call" 等常见词
+        keywords: ["contact", "whatsapp", "whats app", "watsapp", "ws", "phone", "hp", "call", "photo", "picture", "image", "电话", "联系", "号码", "照片", "图片", "联络", "hubungi", "telefon", "nombor", "gambar", "foto", "wasap"],
         answers: {
             en: "For inquiries or to see **more product photos**, please WhatsApp **Jordan Yap** at **014-8818581**.<br><a href='https://wa.link/vvfign' target='_blank' style='color:#29b6f6; font-weight:bold;'>Click here to WhatsApp</a>",
             zh: "欲咨询或查看**更多产品图片**，请 WhatsApp 联系 **Jordan Yap (014-8818581)**。<br><a href='https://wa.link/vvfign' target='_blank' style='color:#29b6f6; font-weight:bold;'>点击这里 WhatsApp</a>",
@@ -34,8 +34,8 @@ const knowledgeBase = [
         }
     },
     {
-        // Facebook / Social Media
-        keywords: ["facebook", "fb", "page", "social", "media", "脸书", "面子书", "专页", "facebook page", "laman fb"],
+        // Facebook
+        keywords: ["facebook", "fb", "page", "social", "脸书", "面子书", "专页", "laman fb", "muka buku"],
         answers: {
             en: "Follow our Facebook page for the latest updates: <a href='https://www.facebook.com/siongcheongtrading' target='_blank'>Siong Cheong Trading FB</a>",
             zh: "关注我们的 Facebook 专页以获取最新消息：<a href='https://www.facebook.com/siongcheongtrading' target='_blank'>Siong Cheong Trading FB</a>",
@@ -44,7 +44,7 @@ const knowledgeBase = [
     },
 
     // ---------------------------------------------------------
-    // 2. GENERAL PRODUCT INFO (Retained from previous version)
+    // 2. GENERAL PRODUCT INFO
     // ---------------------------------------------------------
     {
         // Fridge
@@ -66,7 +66,7 @@ const knowledgeBase = [
     },
     {
         // Air Conditioner
-        keywords: ["ac", "air conditioner", "cool", "hot", "quiet", "aircond", "空调", "冷气", "penghawa dingin", "aircon"],
+        keywords: ["ac", "air conditioner", "cool", "hot", "quiet", "aircond", "air con", "空调", "冷气", "penghawa dingin", "aircon"],
         answers: {
             en: "Our ACs operate at an ultra-quiet **21dB** with **Smart Wi-Fi Control**. Cool your room via phone before arriving home!",
             zh: "我们的空调运行噪音低至 **21dB**，并支持**智能 Wi-Fi 控制**。您可以在回家前用手机预先开启冷气！",
@@ -102,7 +102,7 @@ const knowledgeBase = [
     },
     {
         // Payment
-        keywords: ["payment", "pay", "card", "cash", "installment", "付款", "分期", "信用卡", "bayar", "bayaran", "kredit"],
+        keywords: ["payment", "pay", "card", "cash", "installment", "付款", "分期", "信用卡", "bayar", "bayaran", "kredit", "wang"],
         answers: {
             en: "We accept Visa, Mastercard, Online Transfer, and E-Wallets. **0% Installment Plans** available for purchases >RM500.",
             zh: "我们接受 Visa、Mastercard、网上转账和电子钱包。消费满 RM500 可享 **0% 分期付款**。",
