@@ -23,106 +23,112 @@ const knowledgeBase = [
     },
 
     // ---------------------------------------------------------
-    // 2. SHARP REFRIGERATOR MODELS (BASED ON LATEST TABLE)
+    // 2. SHARP REFRIGERATOR MODELS (LATEST CATEGORIES)
     // ---------------------------------------------------------
+
+    // --- Premium & Large Capacity (大型与多门系列) ---
     {
-        keywords: ["SJX6322MS", "6322MS"],
+        keywords: ["SJ821VMSS", "821VMSS", "SJ821"],
         answers: {
-            en: "Model: **SJX6322MS**<br>Capacity: 620L<br>Type: 2-Door (Silver)<br>Inverter: No ❌<br>🛡️ Warranty: 1 Yr General / 5 Yrs Compressor<br>💡 Professional Note: Fixed frequency model, high storage capacity but higher power consumption.",
-            zh: "型号: **SJX6322MS**<br>容量: 620L<br>门型: 双门 (银色)<br>变频: 否 ❌<br>🛡️ 保修: 1年整机 / 5年压缩机<br>💡 专业备注: 定频型号，空间大但耗电量相对较高。",
-            ms: "Model: **SJX6322MS**<br>Kapasiti: 620L<br>Inverter: Tiada ❌<br>🛡️ Waranti: 1 Thn Umum / 5 Thn Pemampat<br>💡 Nota: Model tetap, penggunaan elektrik lebih tinggi."
+            en: "Model: **SJ821VMSS**<br>Capacity: 700L<br>Type: 4-Door (Silver)<br>Inverter: Yes ✅ (J-Tech)<br>🛡️ Warranty: 1 Yr General / 10 Yrs Compressor<br>💡 Note: Spacious 4-door design with elegant silver finish.",
+            zh: "型号: **SJ821VMSS**<br>容量: 700L<br>门型: 四门设计 (银色)<br>变频: 是 ✅ (J-Tech Inverter)<br>🛡️ 保修: 1年整机 / 10年压缩机<br>💡 专业备注: 宽敞存储空间，四门法式设计，高端大气。",
+            ms: "Model: **SJ821VMSS**<br>Kapasiti: 700L<br>Pintu: 4-Pintu (Perak)<br>Inverter: Ya ✅ (J-Tech)<br>🛡️ Waranti: 1 Thn Umum / 10 Thn Pemampat"
         }
     },
     {
-        keywords: ["SJP735MBK", "735MBK"],
+        keywords: ["SJP735MBK", "735MBK", "SJP735"],
         answers: {
-            en: "Model: **SJP735MBK**<br>Capacity: 700L<br>Type: Side-by-Side (Black)<br>Inverter: No ❌<br>🛡️ Warranty: 1 Yr General / 5 Yrs Compressor<br>💡 Professional Note: Large capacity for big families, but lacks energy-saving inverter tech.",
-            zh: "型号: **SJP735MBK**<br>容量: 700L<br>门型: 对开门 (黑色)<br>变频: 否 ❌<br>🛡️ 保修: 1年整机 / 5年压缩机<br>💡 专业备注: 超大容量适合大家庭，但由于非变频，不属于节能款。",
-            ms: "Model: **SJP735MBK**<br>Kapasiti: 700L<br>Inverter: Tiada ❌<br>🛡️ Waranti: 1 Thn Umum / 5 Thn Pemampat<br>💡 Nota: Kapasiti besar tapi tidak jimat elektrik."
+            en: "Model: **SJP735MBK**<br>Capacity: 700L<br>Type: 2-Door (Black)<br>Inverter: Yes ✅<br>🛡️ Warranty: 1 Yr General / 10 Yrs Compressor<br>💡 Features: **Plasmacluster™ Ion** technology for sterilization.",
+            zh: "型号: **SJP735MBK**<br>容量: 700L<br>门型: 双门 (黑色)<br>变频: 是 ✅<br>🛡️ 保修: 1年整机 / 10年压缩机<br>💡 专业备注: 大容量双门，配备 **Plasmacluster™ 净离子群**除菌技术。",
+            ms: "Model: **SJP735MBK**<br>Kapasiti: 700L<br>Inverter: Ya ✅<br>🛡️ Waranti: 1 Thn Umum / 10 Thn Pemampat<br>💡 Ciri: Teknologi **Plasmacluster™ Ion**."
         }
     },
     {
-        keywords: ["SJP682MFGK", "682MFGK"],
+        keywords: ["SJF489GK", "489GK", "SJF489"],
         answers: {
-            en: "Model: **SJP682MFGK**<br>Capacity: 610L<br>Type: 2-Door (Dark Finish)<br>🛡️ Warranty: 1 Yr General / 5 Yrs Compressor<br>💡 Note: Non-inverter model.",
-            zh: "型号: **SJP682MFGK**<br>容量: 610L<br>门型: 双门 (深色外观)<br>🛡️ 保修: 1年整机 / 5年压缩机<br>💡 专业备注: 传统非变频型号。",
-            ms: "Model: **SJP682MFGK**<br>Kapasiti: 610L<br>Waranti: 1 Thn Umum / 5 Thn Pemampat"
+            en: "Model: **SJF489GK**<br>Capacity: ~480L (est)<br>Type: 4-Door French (Glass Door)<br>Inverter: Yes ✅ (J-Tech)<br>🛡️ Warranty: 1 Yr General / 10 Yrs Compressor<br>💡 Note: Premium mirror glass finish.",
+            zh: "型号: **SJF489GK**<br>容量: 约 480L<br>门型: 四门法式对开 (黑色玻璃镜面)<br>变频: 是 ✅ (J-Tech Inverter)<br>🛡️ 保修: 1年整机 / 10年压缩机<br>💡 专业备注: 玻璃镜面外观非常高级，适合追求美观的家庭。",
+            ms: "Model: **SJF489GK**<br>Kapasiti: ~480L<br>Pintu: 4-Pintu (Pintu Kaca)<br>Inverter: Ya ✅"
+        }
+    },
+    {
+        keywords: ["SJP682MFGK", "682MFGK", "SJP682"],
+        answers: {
+            en: "Model: **SJP682MFGK**<br>Capacity: 610L<br>Type: 2-Door (Glass Finish)<br>Inverter: Yes ✅<br>🛡️ Warranty: 1 Yr General / 10 Yrs Compressor",
+            zh: "型号: **SJP682MFGK**<br>容量: 610L<br>门型: 双门 (黑色玻璃镜面)<br>变频: 是 ✅ (J-Tech Inverter)<br>🛡️ 保修: 1年整机 / 10年压缩机<br>💡 专业备注: 宽体设计，玻璃质感外观。",
+            ms: "Model: **SJP682MFGK**<br>Kapasiti: 610L<br>Inverter: Ya ✅<br>🛡️ Waranti: 1 Thn Umum / 10 Thn Pemampat"
+        }
+    },
+    {
+        keywords: ["SJX6322GK", "6322GK", "SJX6322MS", "6322MS"],
+        answers: {
+            en: "Model: **SJX6322 Series** (GK=Glass / MS=Metal Silver)<br>Capacity: 620L<br>Inverter: Yes ✅ (J-Tech)<br>🛡️ Warranty: 1 Yr General / 10 Yrs Compressor<br>💡 Note: Features an extra-large freezer compartment.",
+            zh: "型号: **SJX6322 系列** (GK为黑色玻璃 / MS为银色金属)<br>容量: 620L<br>变频: 是 ✅ (J-Tech Inverter)<br>🛡️ 保修: 1年整机 / 10年压缩机<br>💡 专业备注: 拥有特大冷冻室 (Freezer)，适合存储大量冷冻食品。",
+            ms: "Model: **SJX6322 GK/MS**<br>Kapasiti: 620L<br>Inverter: Ya ✅<br>🛡️ Waranti: 1 Thn Umum / 10 Thn Pemampat"
+        }
+    },
+
+    // --- Mid-Range Inverter Series (中型变频系列) ---
+    {
+        keywords: ["SJE5381MK", "5381MK", "SJE5381"],
+        answers: {
+            en: "Model: **SJE5381MK**<br>Capacity: 480L<br>Inverter: Yes ✅<br>🛡️ Warranty: 1 Yr General / 10 Yrs Compressor<br>💡 Features: Ag+ Cu Nano Deodorizer to keep odors away.",
+            zh: "型号: **SJE5381MK**<br>容量: 480L<br>变频: 是 ✅<br>🛡️ 保修: 1年整机 / 10年压缩机<br>💡 专业备注: 大容量双门，带有 **Ag+ Cu Nano 纳米银铜**除臭功能。",
+            ms: "Model: **SJE5381MK**<br>Kapasiti: 480L<br>Inverter: Ya ✅<br>🛡️ Waranti: 1 Thn Umum / 10 Thn Pemampat"
+        }
+    },
+    {
+        keywords: ["SJ4422MSS", "SJ4122MSS", "SJ3822MSS", "SJ3222MSS", "SJ2822MSS", "22MSS"],
+        answers: {
+            en: "Model: **Sharp 22MSS Series** (Available in 280L - 440L)<br>Inverter: Yes ✅ (J-Tech)<br>🛡️ Warranty: 1 Yr General / 10 Yrs Compressor<br>💡 Note: Standard silver finish with **Extra Cool** mode. Very energy efficient.",
+            zh: "型号: **Sharp 22MSS 变频系列** (提供 280L 至 440L 多种容量)<br>变频: 是 ✅ (J-Tech Inverter)<br>🛡️ 保修: 1年整机 / 10年压缩机<br>💡 专业备注: 同代 J-Tech 变频银色款，省电耐用，带有 Extra Cool 模式。",
+            ms: "Model: **Siri SJ-22MSS** (280L - 440L)<br>Inverter: Ya ✅ (J-Tech)<br>🛡️ Waranti: 1 Thn Umum / 10 Thn Pemampat"
+        }
+    },
+
+    // --- Standard / Non-Inverter (标准/非变频系列) ---
+    {
+        keywords: ["SJ327MDS", "SJ287MDS", "SJ285MSS", "MDS", "287MDS", "327MDS"],
+        answers: {
+            en: "Model: **Sharp Standard Series** (SJ327/287/285)<br>Inverter: No ❌<br>🛡️ Warranty: 1 Yr General / 5 Yrs Compressor<br>💡 Note: Simple, durable fixed-frequency refrigerator in Silver or Dark Grey.",
+            zh: "型号: **Sharp 标准系列** (SJ327/287/285)<br>变频: 否 ❌ (定频)<br>🛡️ 保修: 1年整机 / 5年压缩机<br>💡 专业备注: 标准定频冰箱，深银色/灰色外观。简单耐用，适合预算型用户。",
+            ms: "Model: **Siri Standard** (SJ327/287/285)<br>Inverter: Tiada ❌<br>🛡️ Waranti: 1 Thn Umum / 5 Thn Pemampat"
+        }
+    },
+    {
+        keywords: ["SJ189MS", "189MS", "single door"],
+        answers: {
+            en: "Model: **SJ189MS**<br>Capacity: ~170L-190L<br>Type: Single Door (Silver)<br>🛡️ Warranty: 1 Yr General / 5 Yrs Compressor<br>💡 Note: Semi-auto defrost. Best for studio units or singles.",
+            zh: "型号: **SJ189MS**<br>容量: 170L-190L<br>门型: 单门冰箱 (银色)<br>变频: 否 ❌<br>🛡️ 保修: 1年整机 / 5年压缩机<br>💡 专业备注: **半自动除霜** (Semi-Auto Defrost)，适合单身公寓或小户型。",
+            ms: "Model: **SJ189MS** (Pintu Tunggal)<br>🛡️ Waranti: 1 Thn Umum / 5 Thn Pemampat"
         }
     },
     {
         keywords: ["SJM60MK", "60MK", "mini bar"],
         answers: {
-            en: "Model: **SJM60MK**<br>Capacity: 60L<br>Type: Single Door (Black)<br>🛡️ Warranty: 1 Yr General / 5 Yrs Compressor<br>💡 Note: Perfect as a Mini Bar for rooms or offices.",
-            zh: "型号: **SJM60MK**<br>容量: 60L<br>门型: 单门 (黑色)<br>🛡️ 保修: 1年整机 / 5年压缩机<br>💡 专业备注: 迷你吧 (Mini Bar)，适合卧室或办公室。",
-            ms: "Model: **SJM60MK**<br>Kapasiti: 60L<br>Waranti: 1 Thn Umum / 5 Thn Pemampat<br>💡 Nota: Sesuai untuk bilik atau pejabat."
-        }
-    },
-    {
-        keywords: ["SJS21VMSS", "21VMSS", "SJS21"],
-        answers: {
-            en: "Model: **SJS21VMSS**<br>Capacity: 700L<br>Type: Side-by-Side (Silver)<br>Inverter: Yes ✅<br>🛡️ Warranty: 1 Yr General / 10 Yrs Compressor<br>💡 Professional Note: High-end Inverter model. Features **Plasmacluster™ Ion** tech to eliminate 99% of bacteria and odors.",
-            zh: "型号: **SJS21VMSS**<br>容量: 700L<br>门型: 对开门 (银色)<br>变频: 是 (Inverter) ✅<br>🛡️ 保修: 1年整机 / 10年压缩机<br>💡 专业备注: 变频高端款。配备 **Plasmacluster™ 净离子群**除菌技术，长效保鲜除异味。",
-            ms: "Model: **SJS21VMSS**<br>Kapasiti: 700L<br>Inverter: Ya ✅<br>🛡️ Waranti: 1 Thn Umum / 10 Thn Pemampat<br>💡 Nota: Siri Inverter Premium dengan teknologi **Plasmacluster™**."
-        }
-    },
-    {
-        keywords: ["SJS4422MSS", "4422MSS"],
-        answers: {
-            en: "Model: **SJS4422MSS**<br>Capacity: 440L<br>Type: 2-Door (Silver)<br>Inverter: Yes ✅<br>🛡️ Warranty: 1 Yr General / 10 Yrs Compressor<br>💡 Professional Note: Mainstream energy-saving model. Efficient J-Tech Inverter tech.",
-            zh: "型号: **SJS4422MSS**<br>容量: 440L<br>门型: 双门 (银色)<br>变频: 是 (Inverter) ✅<br>🛡️ 保修: 1年整机 / 10年压缩机<br>💡 专业备注: 主流省电款，性价比极高，采用 J-Tech 变频技术。",
-            ms: "Model: **SJS4422MSS**<br>Kapasiti: 440L<br>Inverter: Ya ✅<br>🛡️ Waranti: 1 Thn Umum / 10 Thn Pemampat<br>💡 Nota: Model jimat elektrik yang paling popular."
-        }
-    },
-    {
-        keywords: ["SJS4122MSS", "4122MSS"],
-        answers: {
-            en: "Model: **SJS4122MSS**<br>Capacity: 410L<br>Inverter: Yes ✅<br>🛡️ Warranty: 1 Yr General / 10 Yrs Compressor<br>💡 Professional Note: Super quiet operation, perfect for open-plan kitchens.",
-            zh: "型号: **SJS4122MSS**<br>容量: 410L<br>门型: 双门 (银色)<br>变频: 是 (Inverter) ✅<br>🛡️ 保修: 1年整机 / 10年压缩机<br>💡 专业备注: 运行非常安静，适合怕吵的家庭。",
-            ms: "Model: **SJS4122MSS**<br>Kapasiti: 410L<br>Inverter: Ya ✅<br>🛡️ Waranti: 1 Thn Umum / 10 Thn Pemampat"
-        }
-    },
-    {
-        keywords: ["SJS3822MSS", "3822MSS"],
-        answers: {
-            en: "Model: **SJS3822MSS**<br>Capacity: 380L<br>Inverter: Yes ✅<br>🛡️ Warranty: 1 Yr General / 10 Yrs Compressor<br>💡 Professional Note: High cost-performance ratio. Energy efficient with Ag+ Deodorizer.",
-            zh: "型号: **SJS3822MSS**<br>容量: 380L<br>门型: 双门 (银色)<br>变频: 是 (Inverter) ✅<br>🛡️ 保修: 1年整机 / 10年压缩机<br>💡 专业备注: 高性价比之选。省电且带 Ag+ 纳米除臭系统。",
-            ms: "Model: **SJS3822MSS**<br>Kapasiti: 380L<br>Inverter: Ya ✅<br>🛡️ Waranti: 1 Thn Umum / 10 Thn Pemampat"
-        }
-    },
-    {
-        keywords: ["SJS2822MSS", "2822MSS"],
-        answers: {
-            en: "Model: **SJS2822MSS**<br>Capacity: 280L<br>Inverter: Yes ✅<br>🛡️ Warranty: 1 Yr General / 10 Yrs Compressor<br>💡 Professional Note: Compact energy saver for smaller households.",
-            zh: "型号: **SJS2822MSS**<br>容量: 280L<br>门型: 双门 (银色)<br>变频: 是 (Inverter) ✅<br>🛡️ 保修: 1年整机 / 10年压缩机<br>💡 专业备注: 小家庭首选，小体积却拥有变频省电技术。",
-            ms: "Model: **SJS2822MSS**<br>Kapasiti: 280L<br>Inverter: Ya ✅<br>🛡️ Waranti: 1 Thn Umum / 10 Thn Pemampat"
-        }
-    },
-    {
-        keywords: ["SJS189MS", "189MS"],
-        answers: {
-            en: "Model: **SJS189MS**<br>Capacity: 180L<br>Type: Single/Double Door (Silver)<br>🛡️ Warranty: 1 Yr General / 5 Yrs Compressor<br>💡 Note: Ideal for singles or small rentals.",
-            zh: "型号: **SJS189MS**<br>容量: 180L<br>门型: 单/双门 (银色)<br>🛡️ 保修: 1年整机 / 5年压缩机<br>💡 专业备注: 适合单身人士或出租房使用。",
-            ms: "Model: **SJS189MS**<br>Kapasiti: 180L<br>Waranti: 1 Thn Umum / 5 Thn Pemampat"
+            en: "Model: **SJM60MK (Mini Bar)**<br>Capacity: 60L<br>Inverter: No ❌<br>🛡️ Warranty: 1 Yr General / 5 Yrs Compressor<br>💡 Note: For drinks and snacks. No full freezer compartment.",
+            zh: "型号: **SJM60MK (迷你吧)**<br>容量: 60L<br>类型: 迷你小型冷藏箱<br>变频: 否 ❌<br>🛡️ 保修: 1年整机 / 5年压缩机<br>💡 专业备注: 适合酒店或房间放饮料，没有正式冷冻功能。",
+            ms: "Model: **SJM60MK (Mini Bar)**<br>🛡️ Waranti: 1 Thn Umum / 5 Thn Pemampat"
         }
     },
 
     // ---------------------------------------------------------
-    // 3. PROFESSIONAL KNOWLEDGE (INVERTER VS NON-INVERTER)
+    // 3. PROFESSIONAL KNOWLEDGE
     // ---------------------------------------------------------
     {
         keywords: ["difference", "compare", "inverter vs non inverter", "save electricity", "省电", "变频", "定频", "差别", "比较", "jimat elektrik", "beza"],
         answers: {
-            en: "### Why choose Sharp J-Tech Inverter?<br>🔋 **Energy Saving**: Saves 20%–40% on electricity bills (Crucial for MY tariffs!)<br>🔇 **Quiet**: Much lower noise level, ideal for Condos/Apartments.<br>♻️ **Durability**: Compressor lasts longer, which is why we offer a **10-Year Warranty**.<br><hr>### Non-Inverter (Fixed Frequency):<br>💰 **Low Price**: Cheaper upfront cost.<br>⚡ **Higher Bill**: Frequent start-stops consume more electricity.<br>🧯 **Warranty**: Only 5 years on compressor.",
-            zh: "### 为什么推荐 Sharp J-Tech 变频 (Inverter)?<br>🔋 **极度省电**: 比普通冰箱省电 20%–40%（长期下来省下不少电费！）<br>🔇 **超静音**: 运作声音极小，非常适合公寓或 Condo。<br>♻️ **更长寿命**: 变频压缩机损耗小，所以我们提供 **10年保修**。<br><hr>### 非变频 (定频) 特点:<br>💰 **价格便宜**: 购买成本低。<br>⚡ **耗电较高**: 压缩机频繁启停，非常吃电。<br>🧯 **保修较短**: 压缩机保修通常只有 5 年。",
-            ms: "### Kenapa pilih Sharp J-Tech Inverter?<br>🔋 **Jimat Elektrik**: Penjimatan 20%–40% (Sangat penting di Malaysia!)<br>🔇 **Senyap**: Tahap bunyi lebih rendah, sesuai untuk Condo/Apartmen.<br>♻️ **Tahan Lama**: Pemampat tahan lebih lama, sebab itu kami beri **Waranti 10 Tahun**.<br><hr>### Non-Inverter (Fixed Frequency):<br>💰 **Harga Murah**: Kos beli lebih rendah.<br>⚡ **Bil Tinggi**: Kerap 'start-stop' guna banyak elektrik.<br>🧯 **Waranti**: Biasanya hanya 5 tahun untuk pemampat."
+            en: "### Why choose Sharp J-Tech Inverter?<br>🔋 **Energy Saving**: Saves 20%–40% on electricity bills.<br>🔇 **Quiet**: Much lower noise level.<br>♻️ **Durability**: 10-Year Compressor Warranty.<br><hr>### Non-Inverter (Fixed Frequency):<br>💰 **Lower Price**: Affordable initial cost.<br>⚡ **Higher Bill**: Frequent start-stops use more energy.<br>🧯 **Warranty**: 5 years on compressor.",
+            zh: "### 为什么选择 Sharp J-Tech 变频 (Inverter)?<br>🔋 **省电**: 比普通定频省电 20%–40%。<br>🔇 **静音**: 运行更安静。<br>♻️ **耐用**: 变频压缩机提供 **10年保修**。<br><hr>### 定频 (Non-Inverter) 特点:<br>💰 **价格实惠**: 购买成本较低。<br>⚡ **耗电较高**: 压缩机频繁启停较耗电。<br>🧯 **保修**: 压缩机保修通常为 5 年。",
+            ms: "### Kenapa pilih Sharp J-Tech Inverter?<br>🔋 **Jimat Elektrik**: Penjimatan 20%–40%.<br>🔇 **Senyap**: Tahap bunyi lebih rendah.<br>♻️ **Tahan Lama**: Waranti Pemampat 10 Tahun."
         }
     },
     {
         keywords: ["plasmacluster", "ion", "bacteria", "smell", "等离子", "除菌", "除臭", "味道"],
         answers: {
-            en: "Sharp's unique **Plasmacluster™ Ion** technology emits positive and negative ions to neutralize 99% of bacteria, viruses, and mold. It keeps your food fresh and prevents cross-contamination of food smells.",
-            zh: "Sharp 独有的 **Plasmacluster™ 净离子群**技术能释放正负离子，有效抑制 99% 的细菌、病毒和霉菌。它能确保冰箱内空气清新，防止食物异味交叉感染。",
-            ms: "Teknologi **Plasmacluster™ Ion** Sharp membebaskan ion positif dan negatif untuk meneutralkan 99% bakteria dan kulat. Ia menjaga kesegaran makanan dan menghilangkan bau busuk."
+            en: "Sharp's unique **Plasmacluster™ Ion** technology emits positive and negative ions to neutralize 99% of bacteria, viruses, and mold. It keeps your food fresh and prevents odors.",
+            zh: "Sharp 独有的 **Plasmacluster™ 净离子群**技术。它能主动释放正负离子，抑制 99% 的细菌、病毒和霉菌，确保食物新鲜且无异味。",
+            ms: "Teknologi **Plasmacluster™ Ion** Sharp menetralkan 99% bakteria dan kulat. Menjaga makanan segar dan bebas bau."
         }
     }
 ];
