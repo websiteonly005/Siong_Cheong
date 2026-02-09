@@ -24,12 +24,12 @@ const knowledgeBase = [
         }
     },
     {
-        // Contact / WhatsApp / Photos (Updated with Miss Law & SCT Office)
+        // Contact / WhatsApp / Photos (Updated with WhatsApp Links for ALL)
         keywords: ["contact", "whatsapp", "whats app", "watsapp", "ws", "phone", "hp", "call", "photo", "picture", "image", "电话", "联系", "号码", "照片", "图片", "联络", "hubungi", "telefon", "nombor", "gambar", "foto", "wasap"],
         answers: {
-            en: "For inquiries, please contact us:<br>📞 **Jordan Yap**: 014-8818581 (<a href='https://wa.link/vvfign' target='_blank'>WhatsApp</a>)<br>📞 **Miss Law**: 010-9613839<br>📞 **SCT Office**: 010-2556806",
-            zh: "欲咨询请联系我们：<br>📞 **Jordan Yap**: 014-8818581 (<a href='https://wa.link/vvfign' target='_blank'>WhatsApp</a>)<br>📞 **Miss Law**: 010-9613839<br>📞 **SCT Office**: 010-2556806",
-            ms: "Untuk pertanyaan, sila hubungi kami:<br>📞 **Jordan Yap**: 014-8818581 (<a href='https://wa.link/vvfign' target='_blank'>WhatsApp</a>)<br>📞 **Miss Law**: 010-9613839<br>📞 **SCT Office**: 010-2556806"
+            en: "For inquiries, please contact us:<br>📞 **Jordan Yap**: 014-8818581 (<a href='https://wa.link/vvfign' target='_blank'>WhatsApp</a>)<br>📞 **Miss Law**: 010-9613839 (<a href='https://wa.me/60109613839' target='_blank'>WhatsApp</a>)<br>📞 **SCT Office**: 010-2556806 (<a href='https://wa.me/60102556806' target='_blank'>WhatsApp</a>)",
+            zh: "欲咨询请联系我们：<br>📞 **Jordan Yap**: 014-8818581 (<a href='https://wa.link/vvfign' target='_blank'>WhatsApp</a>)<br>📞 **Miss Law**: 010-9613839 (<a href='https://wa.me/60109613839' target='_blank'>WhatsApp</a>)<br>📞 **SCT Office**: 010-2556806 (<a href='https://wa.me/60102556806' target='_blank'>WhatsApp</a>)",
+            ms: "Untuk pertanyaan, sila hubungi kami:<br>📞 **Jordan Yap**: 014-8818581 (<a href='https://wa.link/vvfign' target='_blank'>WhatsApp</a>)<br>📞 **Miss Law**: 010-9613839 (<a href='https://wa.me/60109613839' target='_blank'>WhatsApp</a>)<br>📞 **SCT Office**: 010-2556806 (<a href='https://wa.me/60102556806' target='_blank'>WhatsApp</a>)"
         }
     },
     {
